@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Root from "../pages/Root";
+import CreateNews from "../pages/addmin/CreateNews";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,12 +13,16 @@ const router = createBrowserRouter([
       { path: "/technology", element: <h1>technology</h1> },
       { path: "/sports", element: <h1>sports</h1> },
       { path: "/entertainment", element: <h1>entertainment</h1> },
-      { path: "/world", element: <h1>world</h1> },
+      { path: "/career", element: <h1>Careers</h1> },
       { path: "/national", element: <h1>national</h1> },
       { path: "/health", element: <h1>health</h1> },
       { path: "/education", element: <h1>education</h1> },
       { path: "/business", element: <h1>Business & Economy</h1> },
     ],
+  },
+  {
+    path: "/create",
+    element: <CreateNews />,
   },
 ]);
 
