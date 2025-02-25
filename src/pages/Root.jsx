@@ -4,8 +4,10 @@ import Header from "./shared/Header";
 const Root = () => {
   return (
     <>
-      <Header />
-      <Outlet />
+      <div className="container mx-auto">
+        <Header />
+        <Outlet />
+      </div>
     </>
   );
 };
