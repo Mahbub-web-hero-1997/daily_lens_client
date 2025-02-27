@@ -5,6 +5,16 @@ const Header = () => {
     <>
       <li className="text-md ">
         <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li className="text-md ">
+        <NavLink
           to="/breaking"
           className={({ isActive }) =>
             isActive ? "bg-gray-200 font-bold" : "font-semibold"
