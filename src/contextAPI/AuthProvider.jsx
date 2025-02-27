@@ -1,20 +1,20 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
+
+import UseAxiosPublic from "../customHook/UseAxios";
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [news, setNews] = useState([]);
+  const [newses, setNewses] = useState([]);
+  const axiosPublic = UseAxiosPublic();
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/v1/news/all")
-      .then((res) => setNews(res.data));
-  }, [setNews]);
+    axiosPublic.get("/news/all").then((res) => setNewses(res.data.data));
+  }, []);
 
   const authInfo = {
     loading,
     setLoading,
-    news,
+    newses,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

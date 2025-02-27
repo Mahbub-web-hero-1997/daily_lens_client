@@ -129,11 +129,11 @@ const Header = () => {
   );
   return (
     <>
-      <div className="w-full text-center my-4 hidden md:block">
+      <div className="w-full text-center my-4 hidden md:block md:z-50">
         <h1 className=" text-6xl font-semibold">DAILY-LENS</h1>
       </div>
-      <div className="navbar bg-base-100 shadow-sm">
-        <div className="navbar-start w-[250px]">
+      <div className="navbar bg-base-100 shadow-sm sticky top-0 md:z-50">
+        <div className="md:navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
