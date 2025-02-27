@@ -1,11 +1,11 @@
+import { useContext } from "react";
 import Breaking from "../breakingNews/Breaking";
+import { AuthContext } from "../../contextAPI/AuthProvider";
 
 const Home = () => {
-  return (
-    <>
-      <Breaking />
-    </>
-  );
+  const { news } = useContext(AuthContext);
+  console.log(news);
+  return <>{<Breaking />}</>;
 };
 
 export default Home;
