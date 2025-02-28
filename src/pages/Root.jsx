@@ -5,11 +5,13 @@ import Footer from "./shared/Footer";
 const Root = () => {
   return (
     <>
-      <Header />
-      <div className="">
-        <Outlet />
+      <div className="w-full bg-[#E4E3DB] h-auto">
+        <Header />
+        <div className="">
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

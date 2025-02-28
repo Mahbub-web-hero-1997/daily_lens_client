@@ -1,23 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
+import NewDate from "../CurrentDate";
 
 const Header = () => {
   const navItem = (
     <>
       <li className="text-md ">
         <NavLink
-          to="/home"
-          className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-      <li className="text-md ">
-        <NavLink
           to="/breaking"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold " : "font-semibold"
           }
         >
           Breaking News
@@ -27,7 +18,7 @@ const Header = () => {
         <NavLink
           to="/politics"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Politics
@@ -37,7 +28,7 @@ const Header = () => {
         <NavLink
           to="/national"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           National News
@@ -47,7 +38,7 @@ const Header = () => {
         <NavLink
           to="/international"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           International
@@ -57,7 +48,7 @@ const Header = () => {
         <NavLink
           to="/business"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Business & Economy
@@ -67,7 +58,7 @@ const Header = () => {
         <NavLink
           to="/technology"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Technology
@@ -77,7 +68,7 @@ const Header = () => {
         <NavLink
           to="/sports"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Sports
@@ -88,7 +79,7 @@ const Header = () => {
         <NavLink
           to="/entertainment"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Entertainment
@@ -98,7 +89,7 @@ const Header = () => {
         <NavLink
           to="/career"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Jobs & Careers
@@ -109,7 +100,7 @@ const Header = () => {
         <NavLink
           to="/health"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Health & Wellness
@@ -119,7 +110,7 @@ const Header = () => {
         <NavLink
           to="/education"
           className={({ isActive }) =>
-            isActive ? "bg-gray-200 font-bold" : "font-semibold"
+            isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
           Education
@@ -129,10 +120,24 @@ const Header = () => {
   );
   return (
     <>
-      <div className="w-full text-center my-4 hidden md:block md:z-50">
-        <h1 className=" text-6xl font-semibold">DAILY-LENS</h1>
+      <div className=" w-[98%] mx-auto py-2 hidden md:block md:z-50 ">
+        <div className="flex items-center">
+          <div className="w-full">
+            <h1 className="  text-8xl font-semibold tracking-widest mb-4 ">
+              𝖳𝖧𝖤-𝖣𝖠𝖨𝖫𝖸-𝖫𝖤𝖭𝖲
+            </h1>
+            <h4 className=" ml-3 text-2xl font-semibold tracking-widest">
+              THE BEST NEWS FROM THE FIRST HAND
+            </h4>
+          </div>
+          <div className="w-[190px] border-l-[1px] border-gray-300">
+            <NewDate />
+          </div>
+        </div>
+        <hr className="  h-[9px]  bg-black mt-7 mx-auto" />
+        <hr className="h-[3px]  bg-black mx-auto mt-1" />
       </div>
-      <div className="navbar bg-base-100 shadow-sm sticky top-0 md:z-50">
+      <div className="navbar shadow-sm sticky top-0 md:z-50">
         <div className="md:navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
