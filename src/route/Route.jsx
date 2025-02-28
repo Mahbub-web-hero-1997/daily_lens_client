@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Root from "../pages/Root";
 import CreateNews from "../pages/admin/CreateNews";
-import Breaking from "../pages/breakingNews/Breaking";
 import Politics from "../pages/politics/Politics";
 import International from "../pages/international/International";
 import Technology from "../pages/technology/Technology";
@@ -13,6 +12,7 @@ import NationalNews from "../pages/NationalNews.jsx/NationalNews";
 import HealthAndWellness from "../pages/healthAndWellness/HealthAndWellness";
 import Education from "../pages/education/Education";
 import BusinessAndEconomy from "../pages/businessAndEconomy/BusinessAndeconomy";
+import Breakings from "../pages/breakingNews/Breakings";
 
 // import News from "../pages/home/News";
 
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
-      { path: "/breaking", element: <Breaking /> },
+      { path: "/breaking", element: <Breakings /> },
       { path: "/politics", element: <Politics /> },
       { path: "/international", element: <International /> },
       { path: "/technology", element: <Technology /> },

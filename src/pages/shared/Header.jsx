@@ -120,13 +120,13 @@ const Header = () => {
   );
   return (
     <>
-      <div className=" w-[98%] mx-auto py-2 hidden md:block md:z-50 ">
+      <div className=" w-[98%] mx-auto hidden md:block md:z-50 bg-[rgb(237,239,242)]  ">
         <div className="flex items-center">
           <div className="w-full">
             <h1 className="  text-8xl font-semibold tracking-widest mb-4 ">
               𝖳𝖧𝖤-𝖣𝖠𝖨𝖫𝖸-𝖫𝖤𝖭𝖲
             </h1>
-            <h4 className=" ml-3 text-2xl font-semibold tracking-widest">
+            <h4 className=" ml-3 text-2xl text-gray-700  font-semibold tracking-widest">
               THE BEST NEWS FROM THE FIRST HAND
             </h4>
           </div>
@@ -134,10 +134,10 @@ const Header = () => {
             <NewDate />
           </div>
         </div>
-        <hr className="  h-[9px]  bg-black mt-7 mx-auto" />
-        <hr className="h-[3px]  bg-black mx-auto mt-1" />
+        <hr className="  h-[9px] bg-gray-500 mt-7 mx-auto border-0" />
+        <hr className="h-[3px]  bg-gray-500 mx-auto border-0 mt-1" />
       </div>
-      <div className="navbar shadow-sm sticky top-0 md:z-50">
+      <div className="navbar sticky top-0 md:z-50 w-[98%] mx-auto p-0 bg-[rgb(237,239,242)]">
         <div className="md:navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -168,12 +168,15 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItem}</ul>
         </div>
+
         <div className="navbar-end md:hidden">
           <Link to="#" className=" btn btn-ghost text-2xl">
             DAILY-LENS
           </Link>
         </div>
       </div>
+      {/* <hr className="  h-[9px]  bg-black mt-7 mx-auto" /> */}
+      <hr className="h-[2px] bg-gray-400 mx-auto border-0 w-[98%]" />
     </>
   );
 };

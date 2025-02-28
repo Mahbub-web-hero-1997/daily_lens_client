@@ -6,9 +6,11 @@ import router from "./route/Route";
 import AuthProvider from "./contextAPI/AuthProvider";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  </StrictMode>
+  <div className="w-full bg-[rgb(237,239,242)] mx-auto">
+    <StrictMode>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </StrictMode>
+  </div>
 );

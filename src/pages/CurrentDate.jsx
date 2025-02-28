@@ -33,7 +33,7 @@ const CurrentDateTime = () => {
       <p>{currentTime.day}</p>
       <p>{currentTime.monthDay}</p>
       <p>{currentTime.year}</p>
-      <p className="text-white bg-gray-900 rounded-xl">{currentTime.time}</p>
+      <p className="text-white bg-gray-800 rounded-xl">{currentTime.time}</p>
     </div>
   );
 };

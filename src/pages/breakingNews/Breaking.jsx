@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-
-const Breaking = () => {
-  const [newses, setNewses] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/api/v1/news/all")
-      .then((res) => res.json())
-      .then((data) => setNewses(data.data));
-  }, []);
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+const Breaking = ({ breaking }) => {
+  const { title, description, image } = breaking;
   return (
-    <div>
-      <h1>{newses.length}</h1>
-    </div>
+    <Swiper
+      spaceBetween={50}
+      slidesPerView={1}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+      <SwiperSlide>Slide 1</SwiperSlide>
+    </Swiper>
   );
 };
 
