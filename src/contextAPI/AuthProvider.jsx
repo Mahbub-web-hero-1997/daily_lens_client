@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
     });
     setLoading(false);
   }, []);
+
   const authInfo = {
     loading,
     setLoading,

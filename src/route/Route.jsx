@@ -33,12 +33,12 @@ const router = createBrowserRouter([
       { path: "/health", element: <HealthAndWellness /> },
       { path: "/education", element: <Education /> },
       { path: "/business", element: <BusinessAndEconomy /> },
-      // {
-      //   path: "/breaking/:id",
-      //   element: <News />,
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:3000/api/v1/news/single-news/${params.id}`),
-      // },
+      {
+        path: "/news/:id",
+        element: <News />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/api/v1/news/single-news/${params.id}`),
+      },
     ],
   },
   {

@@ -10,7 +10,7 @@ const Breaking = ({ breaking }) => {
         <p className="text-justify leading-6">
           {description.slice(0, 120) + "...."}
         </p>
-        <Link to={`/breaking/${_id}`} className="font-semibold">
+        <Link to={`/news/${_id}`} className="font-semibold">
           Read-more
         </Link>
       </div>

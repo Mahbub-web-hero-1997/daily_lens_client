@@ -1,12 +1,44 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import { AuthContext } from "../../contextAPI/AuthProvider";
 
 const News = () => {
   const news = useLoaderData();
-  console.log(news?.data);
+  const { id } = useParams();
+  const newses = useContext(AuthContext);
+  const allNewses = newses.newses.filter((news) => news._id !== id);
+  console.log(allNewses);
+
   return (
-    <div>
-      <h1>{news?.data?.title}</h1>
-    </div>
+    <>
+      <div className="p-4">
+        <div className="">
+          <img
+            className="w-full md:w-1/2 mx-auto rounded-sm"
+            src={news?.data?.image}
+          />
+          <h2 className="text-xl font-semibold my-2">{news?.data?.title}</h2>
+          <p className="text-justify leading-6">{news?.data?.description}</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+          {allNewses.map((news) => (
+            <div key={news._id} className="hover:scale-101 transition-all p-1">
+              <img
+                className="w-full md:h-[250px] mx-auto rounded-sm"
+                src={news.image}
+              />
+              <h2 className="text-xl font-semibold my-2">{news.title}</h2>
+              <p className="text-justify leading-6">
+                {news.description.slice(0, 120) + "...."}
+              </p>
+              <Link to={`/news/${news._id}`} className="font-semibold">
+                Read-more
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
