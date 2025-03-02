@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./shared/Header";
 import Footer from "./shared/Footer";
+import News from "./news/News";
 
 const Root = () => {
   return (
@@ -17,7 +18,12 @@ const Root = () => {
             </h1>
           </div>
           <div className="w-full md:w-[60%] bg-white overflow-scroll scrollbar-hidden p-2 order-1 md:order-2">
-            <Outlet />
+            <div>
+              <News />
+            </div>
+            <div>
+              <Outlet />
+            </div>
           </div>
           <div className="w-full md:w-[20%] h-screen sticky top-0 p-2 order-2 md:order-3">
             <h1>
