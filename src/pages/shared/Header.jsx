@@ -6,6 +6,17 @@ const Header = () => {
     <>
       <li className="text-md ">
         <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "bg-gray-700 text-white font-bold " : "font-semibold"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      ,
+      <li className="text-md ">
+        <NavLink
           to="/breaking"
           className={({ isActive }) =>
             isActive ? "bg-gray-700 text-white font-bold " : "font-semibold"
@@ -74,7 +85,6 @@ const Header = () => {
           Sports
         </NavLink>
       </li>
-
       <li className="text-md ">
         <NavLink
           to="/entertainment"
@@ -95,7 +105,6 @@ const Header = () => {
           Jobs & Careers
         </NavLink>
       </li>
-
       <li className="text-md ">
         <NavLink
           to="/health"
@@ -137,8 +146,8 @@ const Header = () => {
         <hr className="  h-[9px] bg-gray-500 mt-7 mx-auto border-0" />
         <hr className="h-[3px]  bg-gray-500 mx-auto border-0 mt-1" />
       </div>
-      <div className="navbar sticky top-0 md:z-50 w-[98%] mx-auto p-0 bg-[rgb(237,239,242)]">
-        <div className="md:navbar-start">
+      <div className="navbar sticky text-center top-0 md:z-50 w-[98%] mx-auto p-0 bg-[rgb(237,239,242)]">
+        <div className="md:navbar-end">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -165,7 +174,7 @@ const Header = () => {
             </ul>
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">{navItem}</ul>
         </div>
 

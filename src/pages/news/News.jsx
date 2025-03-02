@@ -12,7 +12,7 @@ const News = () => {
   return (
     <>
       <div className="p-4">
-        <div className="">
+        <div className="mb-8">
           <img
             className="w-full md:w-1/2 mx-auto rounded-sm"
             src={news?.data?.image}
@@ -20,6 +20,9 @@ const News = () => {
           <h2 className="text-xl font-semibold my-2">{news?.data?.title}</h2>
           <p className="text-justify leading-6">{news?.data?.description}</p>
         </div>
+        <h1 className="text-3xl font-semibold text-center underline mb-3">
+          Related News
+        </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
           {allNewses.map((news) => (
             <div key={news._id} className="hover:scale-101 transition-all p-1">

@@ -14,6 +14,7 @@ import Education from "../pages/education/Education";
 import BusinessAndEconomy from "../pages/businessAndEconomy/BusinessAndeconomy";
 import Breakings from "../pages/breakingNews/Breakings";
 import News from "../pages/news/News";
+import Home from "../pages/home/Home";
 
 // import News from "../pages/home/News";
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
+      { path: "/", element: <Home /> },
       { path: "/breaking", element: <Breakings /> },
       { path: "/politics", element: <Politics /> },
       { path: "/international", element: <International /> },
