@@ -11,16 +11,22 @@ const AuthProvider = ({ children }) => {
   // All Newses Api Fetched Here
   useEffect(() => {
     loading;
-    axiosPublic.get("/news/all").then((res) => setNewses(res.data.data));
+    axiosPublic.get("/news/all").then((res) => {
+      console.log(res.data?.data.news);
+      setNewses(res.data?.data?.news);
+    });
     setLoading(false);
   }, []);
   useEffect(() => {
     loading;
     axiosPublic.get("/news/all").then((res) => {
-      const breaking = res.data.data.filter(
+      loading;
+      const breaking = res.data?.data?.news?.filter(
         (item) => item.category === "Breaking-News"
       );
+
       setBreakings(breaking);
+      // console.log("Line breaking", res.data?.data.news);
     });
     setLoading(false);
   }, []);

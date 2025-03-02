@@ -14,7 +14,7 @@ const Header = () => {
           Home
         </NavLink>
       </li>
-      ,
+
       <li className="text-md ">
         <NavLink
           to="/breaking"

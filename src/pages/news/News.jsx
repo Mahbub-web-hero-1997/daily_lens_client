@@ -6,8 +6,8 @@ const News = () => {
   const news = useLoaderData();
   const { id } = useParams();
   const newses = useContext(AuthContext);
-  const allNewses = newses.newses.filter((news) => news._id !== id);
-  console.log(allNewses);
+  const allNewses = newses.newses.news.filter((news) => news._id !== id);
+  console.log(newses.newses.news);
 
   return (
     <>
