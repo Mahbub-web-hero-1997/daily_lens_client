@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const AllNewses = () => {
   const newses = useContext(AuthContext);
   const allNewses = newses?.newses;
-  console.log(allNewses);
+  //   console.log(allNewses);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

@@ -7,15 +7,16 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [newses, setNewses] = useState([]);
   const [breakings, setBreakings] = useState([]);
+
   const axiosPublic = UseAxiosPublic();
   // All Newses Api Fetched Here
   useEffect(() => {
     loading;
     axiosPublic.get("/news/all").then((res) => {
-      console.log(res.data?.data.news);
+      loading;
       setNewses(res.data?.data?.news);
+      setLoading(false);
     });
-    setLoading(false);
   }, []);
   useEffect(() => {
     loading;
@@ -36,6 +37,16 @@ const AuthProvider = ({ children }) => {
     setLoading,
     newses,
     breakings,
+    // sports,
+    // business,
+    // technology,
+    // entertainment,
+    // jobs,
+    // national,
+    // world,
+    // health,
+    // education,
+    // politics,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

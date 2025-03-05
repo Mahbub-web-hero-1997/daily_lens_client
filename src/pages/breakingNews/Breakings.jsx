@@ -4,7 +4,7 @@ import Breaking from "./Breaking";
 
 const Breakings = () => {
   const breakings = useContext(AuthContext);
-  console.log(breakings?.breaking);
+  console.log(breakings);
   return (
     <div>
       {breakings.breakings.map((breaking) => (
