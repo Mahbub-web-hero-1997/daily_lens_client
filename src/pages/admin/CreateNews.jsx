@@ -22,7 +22,7 @@ const CreateNews = () => {
   return (
     <>
       <div
-        className={` my-6 w-full md:w-2/3 mx-auto md:h-[calc(100vh-30px)] flex flex-col items-center  `}
+        className={` py-6 w-[96%] md:w-2/3 mx-auto h-screen md:h-[calc(100vh-30px)] flex flex-col items-center justify-center  `}
       >
         <h2 className="text-2xl text-center font-semibold mb-4 md:mt-20">
           Create a News
