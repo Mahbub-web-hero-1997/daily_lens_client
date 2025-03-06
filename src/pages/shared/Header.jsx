@@ -146,7 +146,7 @@ const Header = () => {
         <hr className="  h-[9px] bg-gray-500 mt-7 mx-auto border-0" />
         <hr className="h-[3px]  bg-gray-500 mx-auto border-0 mt-1" />
       </div>
-      <div className="navbar sticky text-center top-0 md:z-50 w-[98%] mx-auto p-0 bg-[rgb(237,239,242)]">
+      <div className="navbar sticky text-center top-0 md:z-50 w-[98%] mx-auto p-0 bg-[rgb(237,239,242)] z-50 shadow-lg">
         <div className="md:navbar-end">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -168,7 +168,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow "
             >
               {navItem}
             </ul>
@@ -178,7 +178,7 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1 ">{navItem}</ul>
         </div>
 
-        <div className="navbar-end md:hidden">
+        <div className="navbar-end md:hidden ">
           <Link to="#" className=" btn btn-ghost text-2xl">
             DAILY-LENS
           </Link>

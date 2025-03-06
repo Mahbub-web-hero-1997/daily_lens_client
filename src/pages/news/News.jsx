@@ -23,9 +23,12 @@ const News = () => {
         <h1 className="text-3xl font-semibold text-center underline mb-3">
           Related News
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 ">
           {allNewses.map((news) => (
-            <div key={news._id} className="hover:scale-101 transition-all p-1">
+            <div
+              key={news._id}
+              className="hover:scale-101 transition-all p-3 mt-4 shadow-sm border-l-[1px] border-b-[1px] border-gray-300"
+            >
               <img
                 className="w-full md:h-[250px] mx-auto rounded-sm"
                 src={news.image}
