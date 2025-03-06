@@ -12,9 +12,10 @@ import NationalNews from "../pages/NationalNews.jsx/NationalNews";
 import HealthAndWellness from "../pages/healthAndWellness/HealthAndWellness";
 import Education from "../pages/education/Education";
 import BusinessAndEconomy from "../pages/businessAndEconomy/BusinessAndeconomy";
-import Breakings from "../pages/breakingNews/Breakings";
+
 import News from "../pages/news/News";
 import Home from "../pages/home/Home";
+import Breaking from "../pages/breakingNews/Breaking";
 
 // import News from "../pages/home/News";
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/breaking", element: <Breakings /> },
+      { path: "/breaking", element: <Breaking /> },
       { path: "/politics", element: <Politics /> },
       { path: "/international", element: <International /> },
       { path: "/technology", element: <Technology /> },

@@ -16,7 +16,7 @@ const Politics = () => {
         return (
           <div className="hover:scale-101 transition-all" key={_id}>
             <img
-              className="w-full mx-auto rounded-sm"
+              className="w-full md:h-[250px] mx-auto rounded-sm"
               src={image}
               alt={title}
             />

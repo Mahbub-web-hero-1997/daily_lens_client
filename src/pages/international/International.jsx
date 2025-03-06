@@ -11,8 +11,8 @@ const International = () => {
   console.log(internationals);
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
-      {internationals?.map((nternational) => {
-        const { title, description, image, _id } = nternational;
+      {internationals?.map((international) => {
+        const { title, description, image, _id } = international;
         return (
           <div className="hover:scale-101 transition-all" key={_id}>
             <img

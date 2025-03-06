@@ -6,7 +6,6 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [newses, setNewses] = useState([]);
-  const [breakings, setBreakings] = useState([]);
 
   const axiosPublic = UseAxiosPublic();
   // All Newses Api Fetched Here
@@ -18,25 +17,12 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     });
   }, []);
-  useEffect(() => {
-    loading;
-    axiosPublic.get("/news/all").then((res) => {
-      loading;
-      const breaking = res.data?.data?.news?.filter(
-        (item) => item.category === "Breaking-News"
-      );
-
-      setBreakings(breaking);
-      // console.log("Line breaking", res.data?.data.news);
-    });
-    setLoading(false);
-  }, []);
 
   const authInfo = {
     loading,
     setLoading,
     newses,
-    breakings,
+
     // sports,
     // business,
     // technology,

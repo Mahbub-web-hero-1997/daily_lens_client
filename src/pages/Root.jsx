@@ -7,8 +7,8 @@ const Root = () => {
     <>
       <div className="w-full ">
         <Header />
-        <div className="w-full md:w-[98%] mx-auto flex flex-col md:flex-row sticky top-0 ">
-          <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-1 ">
+        <div className="w-full md:w-[98%] mx-auto flex flex-col md:flex-row ">
+          <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-1 sticky top-[calc(4rem+1px)]">
             <h1>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
               magni vitae suscipit neque totam, quisquam voluptas nisi dolorem
@@ -19,7 +19,7 @@ const Root = () => {
           <div className="w-full md:w-[60%] bg-white overflow-scroll scrollbar-hidden p-2 order-1 md:order-2">
             <Outlet />
           </div>
-          <div className="w-full md:w-[20%] h-screen sticky top-0 p-2 order-2 md:order-3">
+          <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-3 sticky top-[calc(4rem+1px)]">
             <h1>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
               magni vitae suscipit neque totam, quisquam voluptas nisi dolorem

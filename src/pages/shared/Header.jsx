@@ -4,7 +4,7 @@ import NewDate from "../CurrentDate";
 const Header = () => {
   const navItem = (
     <>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -15,7 +15,7 @@ const Header = () => {
         </NavLink>
       </li>
 
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/breaking"
           className={({ isActive }) =>
@@ -25,7 +25,7 @@ const Header = () => {
           Breaking News
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/politics"
           className={({ isActive }) =>
@@ -35,7 +35,7 @@ const Header = () => {
           Politics
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/national"
           className={({ isActive }) =>
@@ -45,7 +45,7 @@ const Header = () => {
           National News
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/international"
           className={({ isActive }) =>
@@ -55,7 +55,7 @@ const Header = () => {
           International
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/business"
           className={({ isActive }) =>
@@ -65,7 +65,7 @@ const Header = () => {
           Business & Economy
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/technology"
           className={({ isActive }) =>
@@ -75,7 +75,7 @@ const Header = () => {
           Technology
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/sports"
           className={({ isActive }) =>
@@ -85,7 +85,7 @@ const Header = () => {
           Sports
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/entertainment"
           className={({ isActive }) =>
@@ -95,27 +95,27 @@ const Header = () => {
           Entertainment
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/career"
           className={({ isActive }) =>
             isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
-          Jobs & Careers
+          Jobs
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/health"
           className={({ isActive }) =>
             isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
           }
         >
-          Health & Wellness
+          Health
         </NavLink>
       </li>
-      <li className="text-md ">
+      <li className="text-sm ">
         <NavLink
           to="/education"
           className={({ isActive }) =>
@@ -175,7 +175,7 @@ const Header = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex ">
-          <ul className="menu menu-horizontal px-1">{navItem}</ul>
+          <ul className="menu menu-horizontal px-1 ">{navItem}</ul>
         </div>
 
         <div className="navbar-end md:hidden">
