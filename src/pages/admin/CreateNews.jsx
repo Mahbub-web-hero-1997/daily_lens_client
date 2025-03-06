@@ -60,6 +60,7 @@ const CreateNews = () => {
             <option value="National-News">National-News</option>
             <option value="Health & Wellness">Health & Wellness</option>
             <option value="Education">Education</option>
+            <option value="Education">JobsAndCareer</option>
           </select>
           <input
             className="my-6 text-xl py-3 uppercase cursor-pointer bg-gray-800 bg-gray-700 text-white p-2 rounded-md active:scale-[0.9] transition-transform duration-150 ease-out"

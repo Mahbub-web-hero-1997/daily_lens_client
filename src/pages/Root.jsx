@@ -15,12 +15,21 @@ const Root = () => {
       <div className="w-full ">
         <Header />
         <div className="w-full md:w-[98%] mx-auto flex flex-col md:flex-row ">
+          {/* ********************************************************************
+                                                        Left Side Container
+                                                        **************************************************************** */}
           <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-1 sticky top-[calc(4rem+1px)]">
             <h1>Socials</h1>
           </div>
+          {/* ********************************************************************
+                                                        Outlet Container
+                                                        **************************************************************** */}
           <div className="w-full md:w-[60%] bg-white overflow-scroll scrollbar-hidden p-2 order-1 md:order-2">
             <Outlet />
           </div>
+          {/* ********************************************************************
+                                                        Right Side Container
+                                                        **************************************************************** */}
           <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-3 sticky top-[calc(4rem+1px)] z-20">
             <h1 className="text-center text-xl font-semibold">Breaking News</h1>
             <hr className="w-full md:w-1/2 mx-auto mt-2 border-gray-400" />
