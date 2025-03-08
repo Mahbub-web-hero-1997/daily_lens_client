@@ -18,6 +18,7 @@ import Home from "../pages/home/Home";
 import Breaking from "../pages/breakingNews/Breaking";
 import Dashboard from "../pages/admin/Dashboard";
 import AdminHome from "../pages/admin/AdminHome";
+import GetAllNews from "../pages/admin/getAllNews";
 
 // import News from "../pages/home/News";
 
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/create-news",
         element: <CreateNews />,
+      },
+      {
+        path: "/dashboard/All-Newses",
+        element: <GetAllNews />,
       },
     ],
   },

@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-
 import { MdCancel } from "react-icons/md";
-import AdminHome from "./AdminHome";
-import CreateNews from "./CreateNews";
+
 const Dashboard = () => {
   const [isShow, setIsShow] = useState(false);
   const handleSidebar = () => {
@@ -17,12 +15,12 @@ const Dashboard = () => {
   };
   return (
     <>
-      <div className="flex w-full relative">
-        <button onClick={handleSidebar}>
+      <div className="flex w-full p-1">
+        <button onClick={handleSidebar} className="z-50 fixed top-2 left-2">
           {isShow ? (
-            <FaBars className="text-xl text-gray-700 fixed top-2 left-2 cursor-pointer " />
+            <FaBars className="text-xl text-gray-700  cursor-pointer " />
           ) : (
-            <MdCancel className="text-2xl text-white fixed top-2 left-2 z-50 cursor-pointer" />
+            <MdCancel className="text-2xl text-white fixed  z-50 cursor-pointer" />
           )}
         </button>
         <div
@@ -55,9 +53,21 @@ const Dashboard = () => {
                 Create-News
               </NavLink>
             </li>
+            <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b pb-[1px] translate-x-[1px] transition-all "
+                    : "text-white"
+                }
+                to="/dashboard/All-Newses"
+              >
+                All-Newses
+              </NavLink>
+            </li>
           </ul>
         </div>
-        <div className="w-full h-screen mx-auto md:ml-60 md:pt-10">
+        <div className="w-full h-screen">
           <Outlet />
         </div>
       </div>

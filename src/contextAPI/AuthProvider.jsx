@@ -10,9 +10,7 @@ const AuthProvider = ({ children }) => {
   const axiosPublic = UseAxiosPublic();
   // All Newses Api Fetched Here
   useEffect(() => {
-    loading;
     axiosPublic.get("/news/all").then((res) => {
-      loading;
       setNewses(res.data?.data?.news);
       setLoading(false);
     });
