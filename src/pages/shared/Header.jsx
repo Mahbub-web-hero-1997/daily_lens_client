@@ -127,6 +127,7 @@ const Header = () => {
       </li>
     </>
   );
+
   return (
     <>
       <div className=" w-[98%] mx-auto hidden md:block md:z-50 bg-[rgb(237,239,242)]  ">

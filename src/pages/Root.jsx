@@ -4,6 +4,7 @@ import Footer from "./shared/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../contextAPI/AuthProvider";
 import SocialLinks from "./shared/SocialLinks";
+import NewsLetter from "./shared/NewsLetter";
 
 const Root = () => {
   const newses = useContext(AuthContext);
@@ -21,6 +22,7 @@ const Root = () => {
                                                         **************************************************************** */}
           <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-1 sticky top-[calc(4rem+1px)]">
             <SocialLinks />
+            <NewsLetter />
           </div>
           {/* ********************************************************************
                                                         Outlet Container

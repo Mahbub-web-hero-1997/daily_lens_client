@@ -16,6 +16,8 @@ import BusinessAndEconomy from "../pages/businessAndEconomy/BusinessAndeconomy";
 import News from "../pages/news/News";
 import Home from "../pages/home/Home";
 import Breaking from "../pages/breakingNews/Breaking";
+import Dashboard from "../pages/admin/Dashboard";
+import AdminHome from "../pages/admin/AdminHome";
 
 // import News from "../pages/home/News";
 
@@ -45,8 +47,18 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/create",
-    element: <CreateNews />,
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <AdminHome />,
+      },
+      {
+        path: "/dashboard/create-news",
+        element: <CreateNews />,
+      },
+    ],
   },
 ]);
 

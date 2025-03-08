@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../customHook/UseAxios";
-import styles from "./CreateNews.module.css";
+import styles from "./styles/CreateNews.module.css";
 
 const CreateNews = () => {
   const { register, handleSubmit } = useForm();
