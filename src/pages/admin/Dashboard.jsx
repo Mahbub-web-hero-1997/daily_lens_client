@@ -15,7 +15,7 @@ const Dashboard = () => {
   };
   return (
     <>
-      <div className="flex w-full p-1">
+      <div className="flex w-full p-1 h-screen">
         <button onClick={handleSidebar} className="z-50 fixed top-2 left-2">
           {isShow ? (
             <FaBars className="text-xl text-gray-700  cursor-pointer " />
@@ -67,7 +67,7 @@ const Dashboard = () => {
             </li>
           </ul>
         </div>
-        <div className="w-full h-screen">
+        <div className="w-full h-screen ">
           <Outlet />
         </div>
       </div>

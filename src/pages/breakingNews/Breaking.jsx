@@ -9,11 +9,11 @@ const Breaking = () => {
   );
   console.log(breaking);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
       {breaking?.map((news) => {
         const { title, description, image, _id } = news;
         return (
-          <div className="hover:scale-101 transition-all" key={_id}>
+          <div className="hover:scale-101 transition-all mt-4" key={_id}>
             <img
               className="w-full mx-auto rounded-sm"
               src={image}

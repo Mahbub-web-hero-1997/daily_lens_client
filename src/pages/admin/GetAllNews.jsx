@@ -23,7 +23,7 @@ const GetAllNews = () => {
   };
 
   return (
-    <div className="w-full overflow-auto overflow-x-hidden  bg-gray-200  ">
+    <div className="w-full h-screen overflow-auto overflow-x-hidden  bg-gray-200  ">
       {/* Category Filter */}
       <div className="w-full md:w-1/3 mx-auto p-4 border-b border-gray-500 text-center flex justify-between items-center gap-2 mt-8 md:mt-0">
         <h1 className="text-2xl text-gray-700">

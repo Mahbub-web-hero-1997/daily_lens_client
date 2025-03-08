@@ -8,7 +8,7 @@ const Politics = () => {
   // console.log(politics);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
       {politics
         .slice()
         .reverse()
