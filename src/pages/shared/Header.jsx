@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import NewDate from "../CurrentDate";
 
 const Header = () => {
+  const isAdmin = true;
   const navItem = (
     <>
       <li className="text-sm ">
@@ -125,6 +126,18 @@ const Header = () => {
           Education
         </NavLink>
       </li>
+      {isAdmin ? (
+        <li className="text-sm ">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      ) : null}
     </>
   );
 

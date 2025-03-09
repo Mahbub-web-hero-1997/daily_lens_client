@@ -19,6 +19,7 @@ import Breaking from "../pages/breakingNews/Breaking";
 import Dashboard from "../pages/admin/Dashboard";
 import AdminHome from "../pages/admin/AdminHome";
 import GetAllNews from "../pages/admin/getAllNews";
+import UpdateNews from "../pages/admin/UpdateNews";
 
 // import News from "../pages/home/News";
 
@@ -62,6 +63,12 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/All-Newses",
         element: <GetAllNews />,
+      },
+      {
+        path: "/dashboard/update/:id",
+        element: <UpdateNews />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/api/v1/news/single-news/${params.id}`),
       },
     ],
   },

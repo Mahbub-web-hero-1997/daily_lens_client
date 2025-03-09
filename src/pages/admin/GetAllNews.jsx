@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contextAPI/AuthProvider";
+import { Link } from "react-router-dom";
 
 const GetAllNews = () => {
   const { newses, loading } = useContext(AuthContext);
@@ -69,7 +70,12 @@ const GetAllNews = () => {
                   <td>{news.title}</td>
                   <td>{news.category}</td>
                   <td className="flex gap-5">
-                    <button className="text-blue-500 ">Edit</button>
+                    <Link
+                      to={`/dashboard/update/${news._id}`}
+                      className="text-blue-500 "
+                    >
+                      Edit
+                    </Link>
                     <button className="text-red-500">Delete</button>
                   </td>
                 </tr>

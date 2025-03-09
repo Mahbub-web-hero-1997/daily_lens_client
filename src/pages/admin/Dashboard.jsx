@@ -5,6 +5,7 @@ import { MdCancel } from "react-icons/md";
 
 const Dashboard = () => {
   const [isShow, setIsShow] = useState(false);
+
   const handleSidebar = () => {
     if (isShow) {
       setIsShow(false);
