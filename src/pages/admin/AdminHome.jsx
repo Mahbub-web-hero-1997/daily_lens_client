@@ -1,7 +1,11 @@
-import React from "react";
+import GetAllNews from "./getAllNews";
 
 const AdminHome = () => {
-  return <div>This is Admin Home</div>;
+  return (
+    <div className="w-full md:w-3/4 mx-auto border">
+      <GetAllNews />
+    </div>
+  );
 };
 
 export default AdminHome;
