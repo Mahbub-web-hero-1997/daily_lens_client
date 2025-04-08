@@ -126,7 +126,7 @@ const Header = () => {
           Education
         </NavLink>
       </li>
-      {isAdmin ? (
+      {!isAdmin ? (
         <li className="text-sm ">
           <NavLink
             to="/dashboard"
@@ -137,7 +137,18 @@ const Header = () => {
             Dashboard
           </NavLink>
         </li>
-      ) : null}
+      ) : (
+        <li className="text-sm ">
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
+            }
+          >
+            Login
+          </NavLink>
+        </li>
+      )}
     </>
   );
 

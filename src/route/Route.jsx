@@ -20,6 +20,7 @@ import Dashboard from "../pages/admin/Dashboard";
 import AdminHome from "../pages/admin/AdminHome";
 import GetAllNews from "../pages/admin/getAllNews";
 import UpdateNews from "../pages/admin/UpdateNews";
+import Login from "../pages/login/Login";
 
 // import News from "../pages/home/News";
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:3000/api/v1/news/single-news/${params.id}`),
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "/dashboard",
