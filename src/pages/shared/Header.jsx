@@ -1,8 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import NewDate from "../CurrentDate";
+import { useContext } from "react";
+import { AuthContext } from "../../contextAPI/AuthProvider";
 
 const Header = () => {
-  const isAdmin = true;
+  const isAdmin = false;
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
   const navItem = (
     <>
       <li className="text-sm ">
@@ -126,7 +130,7 @@ const Header = () => {
           Education
         </NavLink>
       </li>
-      {!isAdmin ? (
+      {currentUser && isAdmin ? (
         <li className="text-sm ">
           <NavLink
             to="/dashboard"
@@ -145,7 +149,7 @@ const Header = () => {
               isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
             }
           >
-            Login
+            LogOut
           </NavLink>
         </li>
       )}
