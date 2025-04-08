@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -14,9 +13,10 @@ const Register = () => {
       password: e.target.password.value,
       confirmPassword: e.target.confirmPassword.value,
     };
+    console.log({ profilePicture: e.target.profilePicture.files[0] });
     // Call the login API here with loginInfo
     axios
-      .post("http://localhost:3000/api/v1/user/register", loginInfo, {})
+      .post("http://localhost:3000/api/v1/user/register", loginInfo)
       .then((res) => {
         navigate("/login");
         console.log(res.data);
@@ -28,22 +28,35 @@ const Register = () => {
         <h1 className="text-3xl font-bold text-center text-gray-800">Login</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          {/* Full Name */}
+          <div className="relative">
+            <input
+              type="text"
+              name="fullName"
+              placeholder=" "
+              required
+              className="peer w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">
+              Full Name
+            </label>
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          {/* Email */}
+          <div className="relative">
+            <input
+              type="email"
+              name="email"
+              placeholder=" "
+              required
+              className="peer w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">
+              Email
+            </label>
+          </div>
 
+          {/* Gender */}
           <div className="flex items-center gap-4">
             <label className="font-medium text-gray-600">Gender:</label>
             <label className="flex items-center gap-2">
@@ -56,6 +69,7 @@ const Register = () => {
             </label>
           </div>
 
+          {/* Profile Picture */}
           <label className="block w-full">
             <span className="block mb-1 text-gray-700 font-medium">
               Profile Picture
@@ -65,30 +79,42 @@ const Register = () => {
               name="profilePicture"
               accept="image/*"
               className="block w-full text-sm text-gray-700
-      file:mr-4 file:py-2 file:px-4
-      file:rounded-lg file:border-0
-      file:text-sm file:font-semibold
-      file:bg-blue-600 file:text-white
-      hover:file:bg-blue-700
-      transition-all duration-300"
+          file:mr-4 file:py-2 file:px-4
+          file:rounded-lg file:border-0
+          file:text-sm file:font-semibold
+          file:bg-blue-600 file:text-white
+          hover:file:bg-blue-700
+          transition-all duration-300"
             />
           </label>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          {/* Password */}
+          <div className="relative">
+            <input
+              type="password"
+              name="password"
+              placeholder=" "
+              required
+              className="peer w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">
+              Password
+            </label>
+          </div>
 
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          {/* Confirm Password */}
+          <div className="relative">
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder=" "
+              required
+              className="peer w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-500">
+              Confirm Password
+            </label>
+          </div>
 
           <button
             type="submit"
