@@ -11,8 +11,8 @@ const News = () => {
 
   return (
     <>
-      <div className="p-4">
-        <div className="mb-8">
+      <div className="p-4 ">
+        <div className="mb-8 ">
           <img
             className="w-full md:w-1/2 mx-auto rounded-sm"
             src={news?.data?.image}
@@ -23,7 +23,7 @@ const News = () => {
         <h1 className="text-3xl font-semibold text-center underline mb-3">
           Related News
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 ">
           {allNewses.map((news) => (
             <div
               key={news._id}

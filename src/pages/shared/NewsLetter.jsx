@@ -21,7 +21,7 @@ const NewsLetter = () => {
       </div>
       <iframe
         className="w-full md:w-[90%] h-[200px] mx-auto mt-6 rounded-md"
-        src="https://www.youtube.com/embed/QhUnMfNoGSk"
+        src="https://www.youtube.com/@JamunaTVbd"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
