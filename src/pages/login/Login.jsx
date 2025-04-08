@@ -15,8 +15,12 @@ const Login = () => {
         withCredentials: true,
       })
       .then((res) => {
+        if (!res.data?.data?.user) {
+          alert("User not found");
+          return;
+        }
         navigate("/dashboard");
-        console.log(res.data);
+        console.log(res.data.message);
       });
   };
   return (
