@@ -21,17 +21,6 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     newses,
-
-    // sports,
-    // business,
-    // technology,
-    // entertainment,
-    // jobs,
-    // national,
-    // world,
-    // health,
-    // education,
-    // politics,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

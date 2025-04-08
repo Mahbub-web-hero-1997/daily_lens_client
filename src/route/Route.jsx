@@ -21,6 +21,7 @@ import AdminHome from "../pages/admin/AdminHome";
 import GetAllNews from "../pages/admin/getAllNews";
 import UpdateNews from "../pages/admin/UpdateNews";
 import Login from "../pages/login/Login";
+import Register from "../pages/register/Register";
 
 // import News from "../pages/home/News";
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     path: "/dashboard",
