@@ -20,9 +20,12 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     loading;
     axiosPrivate.get("/user/currentUser").then((res) => {
-      console.log(res.data?.data);
-      setCurrentUser(res.data?.data);
-      setLoading(false);
+      if (res.data?.data) {
+        setCurrentUser(res.data?.data);
+        setLoading(false);
+      } else {
+        setCurrentUser(null);
+      }
     });
   }, []);
   const authInfo = {

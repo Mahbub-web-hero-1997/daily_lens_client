@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../contextAPI/AuthProvider";
 
 const Header = () => {
-  const isAdmin = false;
+  // const isAdmin = false;
   const { currentUser } = useContext(AuthContext);
   console.log(currentUser);
   const navItem = (
@@ -130,7 +130,7 @@ const Header = () => {
           Education
         </NavLink>
       </li>
-      {currentUser && isAdmin ? (
+      {currentUser ? (
         <li className="text-sm ">
           <NavLink
             to="/dashboard"
@@ -149,7 +149,7 @@ const Header = () => {
               isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
             }
           >
-            LogOut
+            Login
           </NavLink>
         </li>
       )}

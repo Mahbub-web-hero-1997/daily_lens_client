@@ -1,10 +1,25 @@
 import { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
+import UseAxiosPrivate from "../../customHook/UseAxiosSecure";
 
 const Dashboard = () => {
+  const axiosPrivate = UseAxiosPrivate();
   const [isShow, setIsShow] = useState(false);
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    axiosPrivate
+      .post("http://localhost:3000/api/v1/user/logout")
+      .then((res) => {
+        if (res.data) {
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleSidebar = () => {
     if (isShow) {
@@ -64,6 +79,19 @@ const Dashboard = () => {
                 to="/dashboard/All-Newses"
               >
                 All-Newses
+              </NavLink>
+            </li>
+            <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+              <NavLink
+                onClick={handleLogOut}
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b pb-[1px] translate-x-[1px] transition-all "
+                    : "text-white"
+                }
+                to="/dashboard/All-Newses"
+              >
+                LogOut
               </NavLink>
             </li>
           </ul>
