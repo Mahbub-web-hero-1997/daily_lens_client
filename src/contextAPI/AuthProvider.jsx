@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [newses, setNewses] = useState([]);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
   const axiosPublic = UseAxiosPublic();
   const axiosPrivate = UseAxiosPrivate();
   // All Newses Api Fetched Here

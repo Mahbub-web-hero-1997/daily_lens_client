@@ -82,17 +82,16 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-              <NavLink
+              <button
                 onClick={handleLogOut}
                 className={({ isActive }) =>
                   isActive
                     ? "border-b pb-[1px] translate-x-[1px] transition-all "
                     : "text-white"
                 }
-                to="/dashboard/All-Newses"
               >
                 LogOut
-              </NavLink>
+              </button>
             </li>
           </ul>
         </div>
