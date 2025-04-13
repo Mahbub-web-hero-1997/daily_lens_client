@@ -43,9 +43,16 @@ const CreateNews = () => {
           />
           <input
             type="file"
-            className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5"
+            className="file:mr-4 file:py-2 file:px-4 
+             file:rounded-sm file:border-0 
+             file:text-sm file:font-semibold 
+             file:bg-gray-800 file:text-white 
+             hover:file:bg-blue-700            
+             text-gray-700 rounded-md 
+             border-0 border-b-1 border-b-gray-400 rounded-md p-4  cursor-pointer"
             {...register("image")}
           />
+
           <select
             className=" border-0 border-b-1 border-b-gray-400 rounded-md p-2 py-5"
             {...register("category")}

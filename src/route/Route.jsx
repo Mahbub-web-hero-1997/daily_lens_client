@@ -22,6 +22,7 @@ import GetAllNews from "../pages/admin/getAllNews";
 import UpdateNews from "../pages/admin/UpdateNews";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import PrivateRoute from "../pages/PrivateRoute";
 
 // import News from "../pages/home/News";
 
@@ -60,7 +61,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",

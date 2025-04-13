@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [newses, setNewses] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState("");
   const axiosPublic = UseAxiosPublic();
   const axiosPrivate = UseAxiosPrivate();
   // All Newses Api Fetched Here
@@ -18,16 +18,18 @@ const AuthProvider = ({ children }) => {
     });
   }, []);
   useEffect(() => {
-    loading;
-    axiosPrivate.get("/user/currentUser").then((res) => {
-      if (res.data?.data) {
-        setCurrentUser(res.data?.data);
-        setLoading(false);
-      } else {
-        setCurrentUser(null);
-      }
-    });
+    (() => {
+      axiosPrivate.get("/user/currentUser").then((res) => {
+        if (res.data?.data) {
+          setCurrentUser(res.data?.data);
+          setLoading(false);
+        } else {
+          setCurrentUser(null);
+        }
+      });
+    })();
   }, []);
+
   const authInfo = {
     loading,
     setLoading,

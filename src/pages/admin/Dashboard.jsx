@@ -14,6 +14,7 @@ const Dashboard = () => {
       .then((res) => {
         if (res.data) {
           navigate("/");
+          console.log(res.data);
         }
       })
       .catch((err) => {
@@ -40,13 +41,13 @@ const Dashboard = () => {
           )}
         </button>
         <div
-          className={`fixed top-0 left-0 h-screen bg-gray-700 px-4 w-[70%] md:w-[15%] z-20 transition-transform duration-300 ${
+          className={`fixed top-0 left-0 h-screen bg-gray-700 px-4 w-[70%] md:w-[20%] z-20 transition-transform duration-300 ${
             isShow ? "-translate-x-full" : ""
           }`}
         >
           <ul className="mt-3 text-white uppercase">
             <li className="text-center text-md md:text-xl font-semibold ">
-              <NavLink to="/">THE-DAILY-LENS</NavLink>
+              <a href="/">THE-DAILY-LENS</a>
             </li>
             <hr className="w-full md:w-3/4 mx-auto my-3" />
             <li className="text-center text-md font-semibold flex items-center gap-2 ">
@@ -69,7 +70,7 @@ const Dashboard = () => {
                 Create-News
               </NavLink>
             </li>
-            <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+            {/* <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
               <NavLink
                 className={({ isActive }) =>
                   isActive
@@ -80,15 +81,11 @@ const Dashboard = () => {
               >
                 All-Newses
               </NavLink>
-            </li>
+            </li> */}
             <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
               <button
                 onClick={handleLogOut}
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b pb-[1px] translate-x-[1px] transition-all "
-                    : "text-white"
-                }
+                className="text-white font-semibold flex items-center gap-2 cursor-pointer"
               >
                 LogOut
               </button>
