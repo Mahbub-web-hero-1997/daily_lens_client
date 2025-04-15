@@ -15,7 +15,7 @@ const Login = () => {
         withCredentials: true,
       })
       .then((res) => {
-        if (!res.data?.data?.user) {
+        if (!res.data?.data) {
           alert("User not found");
           return;
         }

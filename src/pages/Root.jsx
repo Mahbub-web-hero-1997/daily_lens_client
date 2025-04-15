@@ -7,10 +7,15 @@ import SocialLinks from "./shared/SocialLinks";
 import NewsLetter from "./shared/NewsLetter";
 
 const Root = () => {
-  const newses = useContext(AuthContext);
-  const breaking = newses.newses.filter(
-    (news) => news.category === "Breaking-News"
-  );
+  const { loading, newses } = useContext(AuthContext);
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-2 border-dashed rounded-full animate-spin border-blue-500"></div>
+      </div>
+    );
+  }
+  const breaking = newses.filter((news) => news.category === "Breaking-News");
   // console.log(breaking);
   return (
     <>
