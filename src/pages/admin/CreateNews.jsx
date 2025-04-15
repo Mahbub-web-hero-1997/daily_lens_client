@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../customHook/UseAxios";
 import styles from "./styles/CreateNews.module.css";
-
+import Swal from "sweetalert2";
 const CreateNews = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const axiosPublic = UseAxiosPublic();
 
   const onSubmit = async (data) => {
@@ -14,7 +14,13 @@ const CreateNews = () => {
       formData.append("image", data.image[0]);
       formData.append("category", data.category);
       await axiosPublic.post("/news/post", formData);
-      alert("News posted successfully");
+      Swal.fire({
+        title: "News Created Successfully",
+        text: "Your news has been created successfully.",
+        icon: "success",
+        draggable: true,
+      });
+      reset();
     } catch (error) {
       console.log(error);
     }

@@ -23,9 +23,13 @@ const AllNewses = () => {
                 className="w-full md:h-[250px] mx-auto rounded-sm"
                 src={news.image}
               />
-              <h2 className="text-xl font-semibold my-2">{news.title}</h2>
+              <h2 className="text-xl font-semibold my-2">
+                {news.title.length === 150
+                  ? news.title
+                  : news.title.slice(0, 150)}
+              </h2>
               <p className="text-justify leading-6 ">
-                {news.description.slice(0, 50) + "...."}
+                {news.description.slice(0, 100) + "...."}
               </p>
               <Link to={`/news/${news._id}`} className="font-semibold">
                 Read-more
