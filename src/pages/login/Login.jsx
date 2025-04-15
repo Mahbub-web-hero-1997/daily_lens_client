@@ -1,8 +1,11 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contextAPI/AuthProvider";
+import { useContext } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setCurrentUser } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const loginInfo = {
@@ -15,10 +18,8 @@ const Login = () => {
         withCredentials: true,
       })
       .then((res) => {
-        if (!res.data?.data) {
-          alert("User not found");
-          return;
-        }
+        setCurrentUser(res.data?.data?.user);
+        // console.log(res.data.data.user);
         navigate("/dashboard");
         console.log(res.data.message);
       });

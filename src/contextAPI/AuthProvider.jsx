@@ -22,7 +22,8 @@ const AuthProvider = ({ children }) => {
     axiosPublic
       .get("/user/currentUser")
       .then((res) => {
-        setCurrentUser(res.data?.data);
+        setCurrentUser(res.data?.data?.user);
+        console.log(res.data?.data?.user);
         setLoading(false);
       })
       .catch(() => {

@@ -1,21 +1,31 @@
-import { useState } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import UseAxiosPrivate from "../../customHook/UseAxiosSecure";
+import { AuthContext } from "../../contextAPI/AuthProvider";
 
 const Dashboard = () => {
   const axiosPrivate = UseAxiosPrivate();
   const [isShow, setIsShow] = useState(false);
+  const { setCurrentUser, loading } = useContext(AuthContext);
   const navigate = useNavigate();
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-2 border-dashed rounded-full animate-spin border-blue-500"></div>
+      </div>
+    );
+  }
   const handleLogOut = () => {
     axiosPrivate
       .post("http://localhost:3000/api/v1/user/logout")
       .then((res) => {
-        if (res.data) {
-          navigate("/");
-          console.log(res.data);
-        }
+        navigate("/", { replace: true });
+        setTimeout(() => {
+          setCurrentUser(null);
+        }, 1000);
+        console.log(res.data.message);
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +57,7 @@ const Dashboard = () => {
         >
           <ul className="mt-3 text-white uppercase">
             <li className="text-center text-md md:text-xl font-semibold ">
-              <a href="/">THE-DAILY-LENS</a>
+              <Link to="/">THE-DAILY-LENS</Link>
             </li>
             <hr className="w-full md:w-3/4 mx-auto my-3" />
             <li className="text-center text-md font-semibold flex items-center gap-2 ">
