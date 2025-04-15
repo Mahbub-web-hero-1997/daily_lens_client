@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
   const { currentUser } = useContext(AuthContext);
 
   if (!currentUser) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" />;
   }
 
   return children;
