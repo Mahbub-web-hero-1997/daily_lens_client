@@ -14,6 +14,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     axiosPublic.get("/news/all").then((res) => {
       setNewses(res.data?.data?.news);
+      console.log(res.data.data.news);
       setLoading(false);
     });
   }, []);
@@ -23,7 +24,7 @@ const AuthProvider = ({ children }) => {
       .get("/user/currentUser")
       .then((res) => {
         setCurrentUser(res.data?.data);
-        console.log(res.data);
+        // console.log(res.data);
         setLoading(false);
       })
       .catch(() => {

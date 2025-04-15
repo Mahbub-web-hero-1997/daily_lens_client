@@ -13,29 +13,28 @@ const AllNewses = () => {
         .slice()
         .reverse()
         .map((news) => (
-          <div key={news._id} className="shadow-sm">
-            {" "}
-            <div
-              key={news._id}
-              className="hover:scale-101 transition-all p-1 bg-white h-[450px]"
-            >
-              <img
-                className="w-full md:h-[250px] mx-auto rounded-sm"
-                src={news.image}
-              />
-              <h2 className="text-xl font-semibold my-2">
-                {news.title.length === 150
-                  ? news.title
-                  : news.title.slice(0, 150)}
-              </h2>
-              <p className="text-justify leading-6 ">
-                {news.description.slice(0, 100) + "...."}
-              </p>
-              <Link to={`/news/${news._id}`} className="font-semibold">
-                Read-more
-              </Link>
+          <Link to={`/news/${news._id}`} key={news._id}>
+            <div key={news._id} className="shadow-sm">
+              {" "}
+              <div
+                key={news._id}
+                className="hover:scale-101 transition-all p-1 bg-white h-[450px]"
+              >
+                <img
+                  className="w-full md:h-[250px] mx-auto rounded-sm"
+                  src={news.image}
+                />
+                <h2 className="text-xl font-semibold my-2">
+                  {news.title.length === 150
+                    ? news.title
+                    : news.title.slice(0, 150)}
+                </h2>
+                <p className="text-justify leading-6 ">
+                  {news.description.slice(0, 100) + "...."}
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
     </div>
   );
