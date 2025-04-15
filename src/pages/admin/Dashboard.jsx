@@ -22,9 +22,11 @@ const Dashboard = () => {
       .post("http://localhost:3000/api/v1/user/logout")
       .then((res) => {
         navigate("/", { replace: true });
-        setTimeout(() => {
-          setCurrentUser(null);
-        }, 1000);
+        if (res.data) {
+          setTimeout(() => {
+            setCurrentUser(null);
+          }, 1000);
+        }
         console.log(res.data.message);
       })
       .catch((err) => {
