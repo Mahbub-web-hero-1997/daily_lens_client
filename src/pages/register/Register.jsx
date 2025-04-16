@@ -16,7 +16,10 @@ const Register = () => {
     console.log({ profilePicture: e.target.profilePicture.files[0] });
     // Call the login API here with loginInfo
     axios
-      .post("http://localhost:3000/api/v1/user/register", loginInfo)
+      .post(
+        "https://daily-lens-server.vercel.app/api/v1user/register",
+        loginInfo
+      )
       .then((res) => {
         navigate("/login");
         console.log(res.data);

@@ -5,7 +5,14 @@ import { useContext } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { setCurrentUser } = useContext(AuthContext);
+  const { setCurrentUser, loading } = useContext(AuthContext);
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        Loading...
+      </div>
+    );
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     const loginInfo = {
@@ -14,9 +21,13 @@ const Login = () => {
     };
     // Call the login API here with loginInfo
     axios
-      .post("http://localhost:3000/api/v1/user/login", loginInfo, {
-        withCredentials: true,
-      })
+      .post(
+        "https://daily-lens-server.vercel.app/api/v1/user/login",
+        loginInfo,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         setCurrentUser(res.data?.data?.user);
         // console.log(res.data.data.user);

@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     axiosPublic.get("/news/all").then((res) => {
       setNewses(res.data?.data?.news);
-      console.log(res.data.data.news);
+      // console.log(res.data?.data.data);
       setLoading(false);
     });
   }, []);

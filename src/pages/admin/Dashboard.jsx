@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
-import UseAxiosPrivate from "../../customHook/UseAxiosSecure";
 import { AuthContext } from "../../contextAPI/AuthProvider";
+import UseAxiosPublic from "../../customHook/UseAxios";
 
 const Dashboard = () => {
-  const axiosPrivate = UseAxiosPrivate();
+  const axiosPublic = UseAxiosPublic();
   const [isShow, setIsShow] = useState(false);
   const { setCurrentUser, loading } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -18,8 +18,8 @@ const Dashboard = () => {
     );
   }
   const handleLogOut = () => {
-    axiosPrivate
-      .post("http://localhost:3000/api/v1/user/logout")
+    axiosPublic
+      .post("/user/logout", { withCredentials: true })
       .then((res) => {
         navigate("/", { replace: true });
         if (res.data) {
@@ -30,7 +30,7 @@ const Dashboard = () => {
         console.log(res.data.message);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
       });
   };
 
