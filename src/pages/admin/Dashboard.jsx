@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { AuthContext } from "../../contextAPI/AuthProvider";
 import UseAxiosPublic from "../../customHook/UseAxios";
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
   const axiosPublic = UseAxiosPublic();
@@ -26,6 +27,14 @@ const Dashboard = () => {
           setTimeout(() => {
             setCurrentUser(null);
           }, 1000);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${res.data.message}`,
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          console.log(res.data);
         }
         console.log(res.data.message);
       })

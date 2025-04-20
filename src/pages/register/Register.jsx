@@ -21,9 +21,11 @@ const Register = () => {
         console.log(res.data);
         if (res.status === 201) {
           Swal.fire({
+            position: "center",
             icon: "success",
-            title: "Success",
-            text: res.data.message,
+            title: `${res.data.message}`,
+            showConfirmButton: false,
+            timer: 2000,
           });
           reset();
           navigate("/login");

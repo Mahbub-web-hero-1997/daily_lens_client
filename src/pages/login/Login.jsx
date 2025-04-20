@@ -2,6 +2,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contextAPI/AuthProvider";
 import { useContext } from "react";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,9 +27,14 @@ const Login = () => {
       })
       .then((res) => {
         setCurrentUser(res.data?.data?.user);
-        // console.log(res.data.data.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${res.data.message}`,
+          showConfirmButton: false,
+          timer: 2000,
+        });
         navigate("/dashboard");
-        console.log(res.data.message);
       });
   };
   return (
