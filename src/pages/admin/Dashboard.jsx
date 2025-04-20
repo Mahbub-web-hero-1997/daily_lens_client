@@ -19,7 +19,7 @@ const Dashboard = () => {
   }
   const handleLogOut = () => {
     axiosPublic
-      .post("/user/logout", { withCredentials: true })
+      .post("/user/logout")
       .then((res) => {
         navigate("/", { replace: true });
         if (res.data) {
