@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-  baseURL: "https://daily-lens-server.vercel.app/api/v1",
+  baseURL: "http://localhost:3000/api/v1",
   withCredentials: true,
 });
 const UseAxiosPublic = () => {

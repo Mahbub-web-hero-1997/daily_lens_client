@@ -7,7 +7,7 @@ const News = () => {
   const { id } = useParams();
   const newses = useContext(AuthContext);
   const allNewses = newses.newses.filter((news) => news._id !== id);
-  console.log(newses.newses.news);
+  console.log(allNewses);
 
   return (
     <>
