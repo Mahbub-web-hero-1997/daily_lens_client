@@ -2,21 +2,41 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../customHook/UseAxios";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import UseCloudinary from "../../customHook/UseCloudinary";
 
 const Register = () => {
+  const { uploadImage, uploading, err } = UseCloudinary();
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     try {
+      const file = data.profilePicture[0];
+      const imageUrl = await uploadImage(file);
+      if (!imageUrl) {
+        Swal.fire({
+          icon: "error",
+          title: "Profile Picture Upload Error",
+          text: err,
+        });
+        return;
+      }
+      if (data.password !== data.confirmPassword) {
+        Swal.fire({
+          icon: "error",
+          title: "Password Mismatch",
+          text: "Please make sure your passwords match.",
+        });
+        return;
+      }
       const formData = new FormData();
       formData.append("fullName", data.fullName);
       formData.append("email", data.email);
       formData.append("gender", data.gender);
       formData.append("password", data.password);
       formData.append("confirmPassword", data.confirmPassword);
-      formData.append("profilePicture", data.profilePicture[0]);
+      formData.append("profilePicture", imageUrl);
       await axiosPublic.post("/user/register", formData).then((res) => {
         console.log(res.data);
         if (res.status === 201) {
