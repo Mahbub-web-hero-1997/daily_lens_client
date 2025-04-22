@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [newses, setNewses] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const axiosPublic = UseAxiosPublic();
   // const axiosPrivate = UseAxiosPrivate();
   // All Newses Api Fetched Here
@@ -32,12 +33,20 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
       });
   }, []);
+  useEffect(() => {
+    if (currentUser?.role === "admin") {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  }, [currentUser?.role]);
 
   const authInfo = {
     loading,
     setLoading,
     newses,
     currentUser,
+    isAdmin,
     setCurrentUser,
   };
   return (

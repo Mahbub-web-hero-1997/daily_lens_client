@@ -5,7 +5,7 @@ import { AuthContext } from "../../contextAPI/AuthProvider";
 
 const Header = () => {
   // const isAdmin = false;
-  const { currentUser, loading } = useContext(AuthContext);
+  const { currentUser, isAdmin, loading } = useContext(AuthContext);
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -138,7 +138,7 @@ const Header = () => {
           Education
         </NavLink>
       </li>
-      {currentUser ? (
+      {isAdmin ? (
         <li className="text-sm ">
           <NavLink
             to="/dashboard"

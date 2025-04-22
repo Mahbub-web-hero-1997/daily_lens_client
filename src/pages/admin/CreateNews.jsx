@@ -13,13 +13,25 @@ const CreateNews = () => {
       formData.append("description", data.description);
       formData.append("image", data.image[0]);
       formData.append("category", data.category);
-      await axiosPublic.post("/news/post", formData);
-      Swal.fire({
-        title: "News Created Successfully",
-        text: "Your news has been created successfully.",
-        icon: "success",
-        draggable: true,
+      await axiosPublic.post("/news/post", formData).then((res) => {
+        console.log(res.data);
+        if (res.status === 201) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${res.data.message}`,
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: res.data.message,
+          });
+        }
       });
+
       reset();
     } catch (error) {
       console.log(error);

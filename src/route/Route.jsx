@@ -47,9 +47,7 @@ const router = createBrowserRouter([
         path: "/news/:id",
         element: <News />,
         loader: ({ params }) =>
-          fetch(
-            `https://daily-lens-server.vercel.app/api/v1news/single-news/${params.id}`
-          ),
+          fetch(`http://localhost:3000/api/v1/news/single-news/${params.id}`),
       },
     ],
   },
@@ -85,9 +83,7 @@ const router = createBrowserRouter([
         path: "/dashboard/update/:id",
         element: <UpdateNews />,
         loader: ({ params }) =>
-          fetch(
-            `https://daily-lens-server.vercel.app/api/v1news/single-news/${params.id}`
-          ),
+          fetch(`http://localhost:3000/api/v1/news/single-news/${params.id}`),
       },
     ],
   },
