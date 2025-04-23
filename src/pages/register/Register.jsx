@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import UseCloudinary from "../../customHook/UseCloudinary";
 
 const Register = () => {
-  const { uploadImage, uploading, err } = UseCloudinary();
+  const { uploadImage, err } = UseCloudinary();
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
   const { register, handleSubmit, reset } = useForm();
