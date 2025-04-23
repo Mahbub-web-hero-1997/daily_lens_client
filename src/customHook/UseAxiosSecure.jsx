@@ -2,7 +2,7 @@
 // import Cookies from "js-cookie";
 // const UseAxiosPrivate = () => {
 //   const axiosPrivate = axios.create({
-//     baseURL: "http://localhost:3000/api/v1",
+//     baseURL: "https://daily-lens-server.vercel.app/api/v1",
 //     withCredentials: true,
 //   });
 //   axiosPrivate.interceptors.request.use(

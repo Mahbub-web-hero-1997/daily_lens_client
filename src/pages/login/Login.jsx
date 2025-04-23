@@ -22,9 +22,7 @@ const Login = () => {
     };
     // Call the login API here with loginInfo
     axios
-      .post("http://localhost:3000/api/v1/user/login", loginInfo, {
-        withCredentials: true,
-      })
+      .post("https://daily-lens-server.vercel.app/api/v1/user/login", loginInfo)
       .then((res) => {
         setCurrentUser(res.data?.data?.user);
         Swal.fire({
