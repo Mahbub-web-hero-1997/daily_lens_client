@@ -2,16 +2,28 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../customHook/UseAxios";
 import styles from "./styles/CreateNews.module.css";
 import Swal from "sweetalert2";
+import UseCloudinary from "../../customHook/UseCloudinary";
 const CreateNews = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = UseAxiosPublic();
-
+  const { uploadImage, err } = UseCloudinary();
   const onSubmit = async (data) => {
     try {
+      const file = data.image[0];
+      const imageUrl = await uploadImage(file);
+      console.log(imageUrl);
+      if (!imageUrl) {
+        Swal.fire({
+          icon: "error",
+          title: "Image Upload Error",
+          text: err,
+        });
+        return;
+      }
       const formData = new FormData();
       formData.append("title", data.title);
       formData.append("description", data.description);
-      formData.append("image", data.image[0]);
+      formData.append("image", imageUrl);
       formData.append("category", data.category);
       await axiosPublic.post("/news/post", formData).then((res) => {
         console.log(res.data);
