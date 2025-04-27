@@ -138,7 +138,7 @@ const Header = () => {
           Education
         </NavLink>
       </li>
-      {isAdmin ? (
+      {isAdmin || currentUser ? (
         <li className="text-sm ">
           <NavLink
             to="/dashboard"

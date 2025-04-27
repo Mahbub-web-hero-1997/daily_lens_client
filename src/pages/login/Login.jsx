@@ -38,7 +38,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 2000,
         });
-        navigate("/dashboard");
+        navigate("/", { replace: true });
       });
   };
   return (

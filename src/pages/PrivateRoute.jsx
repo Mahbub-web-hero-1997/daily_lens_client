@@ -1,9 +1,11 @@
 import { Navigate } from "react-router-dom";
 import { useContext } from "react";
+import PropTypes from "prop-types";
 import { AuthContext } from "../contextAPI/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
-  const { currentUser, loading } = useContext(AuthContext);
+  const { loading, currentUser } = useContext(AuthContext);
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -17,6 +19,11 @@ const PrivateRoute = ({ children }) => {
   }
 
   return children;
+};
+
+// ✅ PropTypes validation
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default PrivateRoute;

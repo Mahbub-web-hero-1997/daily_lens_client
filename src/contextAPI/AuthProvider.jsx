@@ -1,8 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-
 import UseAxiosPublic from "../customHook/UseAxios";
-// import UseAxiosPrivate from "../customHook/UseAxiosSecure";
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -10,28 +8,27 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const axiosPublic = UseAxiosPublic();
-  // const axiosPrivate = UseAxiosPrivate();
-  // All Newses Api Fetched Here
+
   useEffect(() => {
-    axiosPublic.get("/news/all").then((res) => {
-      setNewses(res.data?.data?.news);
-      // console.log(res.data?.data.data);
-      setLoading(false);
-    });
-  }, []);
-  // Current User Api Fetched Here
-  useEffect(() => {
-    axiosPublic
-      .get("/user/currentUser")
-      .then((res) => {
-        setCurrentUser(res.data?.data);
-        // console.log(res.data);
-        setLoading(false);
-      })
-      .catch(() => {
+    const fetchInitialData = async () => {
+      try {
+        // Fetch news
+        const newsRes = await axiosPublic.get("/news/all");
+        setNewses(newsRes.data?.data?.news || []);
+        // Fetch user
+        const userRes = await axiosPublic.get("/user/currentUser");
+        setCurrentUser(userRes.data?.data);
+        // Set admin if user is admin
+        setIsAdmin(userRes.data?.data?.role === "admin");
+      } catch (err) {
+        console.error("Error fetching data:", err);
         setCurrentUser(null);
+        setIsAdmin(false);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+    fetchInitialData();
   }, []);
   useEffect(() => {
     if (currentUser?.role === "admin") {
@@ -40,7 +37,6 @@ const AuthProvider = ({ children }) => {
       setIsAdmin(false);
     }
   }, [currentUser?.role]);
-
   const authInfo = {
     loading,
     setLoading,
