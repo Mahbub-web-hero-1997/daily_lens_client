@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 const Dashboard = () => {
   const axiosPublic = UseAxiosPublic();
   const [isShow, setIsShow] = useState(false);
-  const { setCurrentUser, loading } = useContext(AuthContext);
+  const { setCurrentUser, loading, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   if (loading) {
     return (
@@ -66,32 +66,33 @@ const Dashboard = () => {
             isShow ? "-translate-x-full" : ""
           }`}
         >
-          <ul className="mt-3 text-white uppercase">
-            <li className="text-center text-md md:text-xl font-semibold ">
-              <Link to="/">THE-DAILY-LENS</Link>
-            </li>
-            <hr className="w-full md:w-3/4 mx-auto my-3" />
-            <li className="text-center text-md font-semibold flex items-center gap-2 ">
-              <NavLink
-                className={({ isActive }) => (isActive ? " " : "text-white")}
-                to="/dashboard"
-              >
-                Admin Home
-              </NavLink>
-            </li>
-            <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b pb-[1px] translate-x-[1px] transition-all "
-                    : "text-white"
-                }
-                to="/dashboard/create-news"
-              >
-                Create-News
-              </NavLink>
-            </li>
-            {/* <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+          {isAdmin ? (
+            <ul className="mt-3 text-white uppercase">
+              <li className="text-center text-md md:text-xl font-semibold ">
+                <Link to="/">THE-DAILY-LENS</Link>
+              </li>
+              <hr className="w-full md:w-3/4 mx-auto my-3" />
+              <li className="text-center text-md font-semibold flex items-center gap-2 ">
+                <NavLink
+                  className={({ isActive }) => (isActive ? " " : "text-white")}
+                  to="/dashboard"
+                >
+                  Admin Home
+                </NavLink>
+              </li>
+              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "border-b pb-[1px] translate-x-[1px] transition-all "
+                      : "text-white"
+                  }
+                  to="/dashboard/create-news"
+                >
+                  Create-News
+                </NavLink>
+              </li>
+              {/* <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
               <NavLink
                 className={({ isActive }) =>
                   isActive
@@ -103,15 +104,63 @@ const Dashboard = () => {
                 All-Newses
               </NavLink>
             </li> */}
-            <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-              <button
-                onClick={handleLogOut}
-                className="text-white font-semibold flex items-center gap-2 cursor-pointer"
+              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+                <button
+                  onClick={handleLogOut}
+                  className="text-white font-semibold flex items-center gap-2 cursor-pointer"
+                >
+                  LogOut
+                </button>
+              </li>
+            </ul>
+          ) : (
+            <ul className="mt-3 text-white uppercase">
+              <li className="text-center text-md md:text-xl font-semibold ">
+                <Link to="/">THE-DAILY-LENS</Link>
+              </li>
+              <hr className="w-full md:w-3/4 mx-auto my-3" />
+              <li className="text-center text-md font-semibold flex items-center gap-2 ">
+                <NavLink
+                  className={({ isActive }) => (isActive ? " " : "text-white")}
+                  to="#"
+                >
+                  User Home
+                </NavLink>
+              </li>
+              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "border-b pb-[1px] translate-x-[1px] transition-all "
+                      : "text-white"
+                  }
+                  to="#"
+                >
+                  Update Profile
+                </NavLink>
+              </li>
+              {/* <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b pb-[1px] translate-x-[1px] transition-all "
+                    : "text-white"
+                }
+                to="/dashboard/All-Newses"
               >
-                LogOut
-              </button>
-            </li>
-          </ul>
+                All-Newses
+              </NavLink>
+            </li> */}
+              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
+                <button
+                  onClick={handleLogOut}
+                  className="text-white font-semibold flex items-center gap-2 cursor-pointer"
+                >
+                  LogOut
+                </button>
+              </li>
+            </ul>
+          )}
         </div>
         <div className="w-full h-screen ">
           <Outlet />

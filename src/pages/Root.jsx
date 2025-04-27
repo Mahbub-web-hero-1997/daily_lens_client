@@ -25,7 +25,7 @@ const Root = () => {
           {/* ********************************************************************
                                                         Left Side Container
                                                         **************************************************************** */}
-          <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-1 sticky top-[calc(4rem+1px)]">
+          <div className="w-full md:w-[20%] h-screen p-2 order-2 md:order-1 md:sticky md:top-[calc(4rem+1px)]">
             <SocialLinks />
             <NewsLetter />
           </div>

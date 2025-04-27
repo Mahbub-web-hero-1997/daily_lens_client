@@ -3,6 +3,7 @@ import UseAxiosPublic from "../../customHook/UseAxios";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import UseCloudinary from "../../customHook/UseCloudinary";
+import { FaHome } from "react-icons/fa";
 
 const Register = () => {
   const { uploadImage, err } = UseCloudinary();
@@ -65,13 +66,17 @@ const Register = () => {
   return (
     <>
       <div
-        className={`py-6 w-[96%] md:w-2/3 mx-auto h-screen md:h-[calc(100vh-30px)] flex flex-col items-center justify-center`}
+        className={`w-[96%] md:w-3/6 mx-auto h-screen md:h-auto flex flex-col items-center justify-center shadow-xl bg-white`}
       >
-        <h2 className="text-2xl text-center font-semibold mb-4 md:mt-20">
-          Register Now
-        </h2>
+        <div className="w-full flex justify-between items-center px-6 mt-4">
+          <FaHome
+            className="text-3xl text-blue-600 cursor-pointer"
+            onClick={() => navigate("/")}
+          />
+        </div>
         <form
-          className="w-full md:w-2/4 h-auto mx-auto flex flex-col p-2"
+          // className="w-full md:w-3/5 h-auto mx-auto flex flex-col p-2"
+          className="w-full h-auto mx-auto flex flex-col px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 "
           onSubmit={handleSubmit(onSubmit)}
         >
           <input
@@ -88,37 +93,39 @@ const Register = () => {
             {...register("email", { required: true })}
           />
 
-          <div className="flex gap-4 mb-4 items-center">
-            <label className="text-gray-700 font-medium">Gender:</label>
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                value="Male"
-                {...register("gender", { required: true })}
-              />
-              Male
-            </label>
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                value="Female"
-                {...register("gender", { required: true })}
-              />
-              Female
-            </label>
-          </div>
+          <div className="flex gap-4 mb-4 border-0 border-b-1 border-b-gray-400 rounded-md p-4">
+            <div className="flex gap-4 mb-4 items-center">
+              <label className="text-gray-700 font-medium">Gender:</label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  value="Male"
+                  {...register("gender", { required: true })}
+                />
+                Male
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  value="Female"
+                  {...register("gender", { required: true })}
+                />
+                Female
+              </label>
+            </div>
 
-          <input
-            type="file"
-            className="file:mr-4 file:py-2 file:px-4 
+            <input
+              type="file"
+              className="file:mr-4 file:py-2 file:px-4 
              file:rounded-sm file:border-0 
              file:text-sm file:font-semibold 
              file:bg-gray-800 file:text-white 
              hover:file:bg-blue-700            
              text-gray-700 rounded-md 
-             border-0 border-b-1 border-b-gray-400 rounded-md p-4  cursor-pointer"
-            {...register("profilePicture", { required: true })}
-          />
+               cursor-pointer"
+              {...register("profilePicture", { required: true })}
+            />
+          </div>
 
           <input
             type="password"
