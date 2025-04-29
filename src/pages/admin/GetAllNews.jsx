@@ -141,7 +141,7 @@ const GetAllNews = () => {
                     <button
                       onClick={() => handleDelete(news._id)}
                       title="Delete"
-                      className="text-red-500 hover:text-red-700 transition"
+                      className="text-red-500 hover:text-red-700 transition cursor-pointer"
                     >
                       <FaTrash size={18} />
                     </button>

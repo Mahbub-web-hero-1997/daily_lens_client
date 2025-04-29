@@ -11,171 +11,117 @@ const Dashboard = () => {
   const [isShow, setIsShow] = useState(false);
   const { setCurrentUser, loading, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="w-16 h-16 border-2 border-dashed rounded-full animate-spin border-blue-500"></div>
-      </div>
-    );
-  }
+
   const handleLogOut = () => {
     axiosPublic
       .post("/user/logout")
       .then((res) => {
         navigate("/", { replace: true });
-        if (res.data) {
-          setTimeout(() => {
-            setCurrentUser(null);
-          }, 1000);
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: `${res.data.message}`,
-            showConfirmButton: false,
-            timer: 2000,
-          });
-          console.log(res.data);
-        }
-        console.log(res.data.message);
+        setTimeout(() => setCurrentUser(null), 1000);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: res.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      .catch((err) => console.error(err.message));
   };
 
-  const handleSidebar = () => {
-    if (isShow) {
-      setIsShow(false);
-    } else {
-      setIsShow(true);
-    }
-    console.log(isShow);
+  const toggleSidebar = () => {
+    setIsShow((prev) => !prev);
   };
-  return (
-    <>
-      <div className="flex w-full p-1 h-screen">
-        {isShow ? (
-          <button
-            onClick={handleSidebar}
-            className="z-50 fixed top-2 left-2 bg-white p-2 rounded-full shadow-md hover:scale-110 transition duration-300"
-          >
-            <FaBars className="text-xl text-gray-700 cursor-pointer" />
-          </button>
-        ) : null}
 
-        <div
-          className={`fixed top-0 left-0 h-screen bg-gray-700 px-4 w-[70%] md:w-[20%] z-20 transition-transform duration-300 ${
-            isShow ? "-translate-x-full" : "translate-x-0"
-          }`}
-        >
-          <button
-            onClick={handleSidebar}
-            className="absolute top-0 right-0 cursor-pointer bg-white text-gray-800 p-1 rounded-full shadow-md hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
-          >
-            <MdCancel className="text-2xl" />
-          </button>
-          {isAdmin ? (
-            <ul className="mt-3 text-white uppercase">
-              <li className="text-center text-md md:text-xl font-semibold ">
-                <Link to="/">THE-DAILY-LENS</Link>
-              </li>
-              <hr className="w-full md:w-3/4 mx-auto my-3" />
-              <li className="text-center text-md font-semibold flex items-center gap-2 ">
-                <NavLink
-                  className={({ isActive }) => (isActive ? " " : "text-white")}
-                  to="/dashboard"
-                >
-                  Admin Home
-                </NavLink>
-              </li>
-              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-[1px] translate-x-[1px] transition-all "
-                      : "text-white"
-                  }
-                  to="/dashboard/create-news"
-                >
-                  Create-News
-                </NavLink>
-              </li>
-              {/* <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b pb-[1px] translate-x-[1px] transition-all "
-                    : "text-white"
-                }
-                to="/dashboard/All-Newses"
-              >
-                All-Newses
-              </NavLink>
-            </li> */}
-              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-                <button
-                  onClick={handleLogOut}
-                  className="text-white font-semibold flex items-center gap-2 cursor-pointer"
-                >
-                  LogOut
-                </button>
-              </li>
-            </ul>
-          ) : (
-            <ul className="mt-3 text-white uppercase">
-              <li className="text-center text-md md:text-xl font-semibold ">
-                <Link to="/">THE-DAILY-LENS</Link>
-              </li>
-              <hr className="w-full md:w-3/4 mx-auto my-3" />
-              <li className="text-center text-md font-semibold flex items-center gap-2 ">
-                <NavLink
-                  className={({ isActive }) => (isActive ? " " : "text-white")}
-                  to="/dashboard/user"
-                >
-                  User Home
-                </NavLink>
-              </li>
-              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b pb-[1px] translate-x-[1px] transition-all "
-                      : "text-white"
-                  }
-                  to="#"
-                >
-                  Update Profile
-                </NavLink>
-              </li>
-              {/* <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "border-b pb-[1px] translate-x-[1px] transition-all "
-                    : "text-white"
-                }
-                to="/dashboard/All-Newses"
-              >
-                All-Newses
-              </NavLink>
-            </li> */}
-              <li className="text-center text-md font-semibold flex items-center gap-2 mt-2 ">
-                <button
-                  onClick={handleLogOut}
-                  className="text-white font-semibold flex items-center gap-2 cursor-pointer"
-                >
-                  LogOut
-                </button>
-              </li>
-            </ul>
-          )}
-        </div>
-        <div className=" w-full md:w-3/4 h-screen md:ml-[20%] ">
-          <Outlet />
-        </div>
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-100 to-blue-300">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-600"></div>
       </div>
-    </>
+    );
+  }
+
+  return (
+    <div className="flex h-screen w-full overflow-hidden bg-gradient-to-br from-blue-100 to-gray-200 relative">
+      {/* Sidebar toggle button for mobile */}
+      <button
+        onClick={toggleSidebar}
+        className="md:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform"
+      >
+        {isShow ? (
+          <MdCancel className="text-2xl text-gray-700" />
+        ) : (
+          <FaBars className="text-xl text-gray-700" />
+        )}
+      </button>
+
+      {/* Sidebar */}
+      <div
+        className={`fixed md:static top-0 left-0 h-screen bg-gradient-to-br from-gray-800 to-gray-700 text-white w-[70%] md:w-[20%] px-6 pt-8 pb-4 z-40 shadow-lg transform transition-transform duration-300 ${
+          isShow ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        }`}
+      >
+        <div className="text-center text-2xl font-bold mb-6 tracking-wider text-white">
+          <Link to="/">THE DAILY LENS</Link>
+        </div>
+        <hr className="border-gray-500 mb-6" />
+
+        <ul className="space-y-4">
+          {isAdmin ? (
+            <>
+              <NavLink
+                end
+                className={({ isActive }) =>
+                  isActive
+                    ? "block font-semibold text-blue-400 border-b-2 border-blue-400 pb-1 transition"
+                    : "block hover:text-blue-300 transition"
+                }
+                to="/dashboard"
+              >
+                Admin Home
+              </NavLink>
+
+              <NavItem to="/dashboard/create-news" label="Create News" />
+              <NavItem to="/dashboard/user" label="Profile" />
+            </>
+          ) : (
+            <>
+              <NavItem to="/dashboard/user" label="Profile" />
+              <NavItem to="#" label="Update Profile" />
+            </>
+          )}
+          <li>
+            <button
+              onClick={handleLogOut}
+              className="w-full text-left font-semibold hover:text-red-400 transition duration-300"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 overflow-y-auto px-4 py-6 md:px-8 bg-white rounded-tl-3xl shadow-inner ">
+        <Outlet />
+      </div>
+    </div>
   );
 };
+
+const NavItem = ({ to, label }) => (
+  <li>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        isActive
+          ? "block font-semibold text-blue-400 border-b-2 border-blue-400 pb-1 transition"
+          : "block hover:text-blue-300 transition"
+      }
+    >
+      {label}
+    </NavLink>
+  </li>
+);
 
 export default Dashboard;
