@@ -19,17 +19,6 @@ const NewsLetter = () => {
           We promise not to spam you with unwanted emails.
         </p>
       </div>
-      {/* <iframe
-        className="w-full md:w-[90%] h-[200px] mx-auto mt-6 rounded-md"
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/qnfnar1LxCc?si=LMF3EVT7JHYTm6N-"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe> */}
       <p className="mt-6 text-center text-blue-800 font-semibold">
         Some functionality Coming soon
       </p>
