@@ -81,7 +81,7 @@ const GetAllNews = () => {
               Filter by Category:
             </label>
             <select
-              className="border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              className="border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700"
               value={selectedCategory}
               onChange={handleCategoryNews}
             >
@@ -152,7 +152,7 @@ const GetAllNews = () => {
           </table>
         ) : (
           <p className="text-center text-gray-600 text-lg mt-10">
-            ❌ No news found in this category.
+            No news found in this category.
           </p>
         )}
       </div>

@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Dashboard = () => {
   const axiosPublic = UseAxiosPublic();
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(false);
   const { setCurrentUser, loading, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   if (loading) {
@@ -70,7 +70,7 @@ const Dashboard = () => {
         >
           <button
             onClick={handleSidebar}
-            className="absolute top-0 right-0 bg-white text-gray-800 p-1 rounded-full shadow-md hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
+            className="absolute top-0 right-0 cursor-pointer bg-white text-gray-800 p-1 rounded-full shadow-md hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
           >
             <MdCancel className="text-2xl" />
           </button>
