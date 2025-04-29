@@ -48,7 +48,7 @@ const Dashboard = () => {
         onClick={toggleSidebar}
         className={`${
           isShow
-            ? "md:hidden fixed z-50 bg-white p-2 rounded-b-full  shadow-md hover:scale-105 transition-transform animate-pulse hover:animate-none"
+            ? "md:hidden fixed z-50 bg-white p-2 rounded-b-full shadow-md hover:scale-105 transition-transform animate-pulse hover:animate-none ml-[283px]"
             : "md:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform"
         }`}
       >
@@ -96,7 +96,7 @@ const Dashboard = () => {
           <li>
             <button
               onClick={handleLogOut}
-              className="w-full text-left font-semibold hover:text-red-400 transition duration-300"
+              className="w-full text-left font-semibold hover:text-red-400 transition duration-300 cursor-pointer"
             >
               Logout
             </button>
