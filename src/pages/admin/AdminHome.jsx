@@ -28,20 +28,24 @@ const AdminHome = () => {
           <h2 className="text-3xl font-bold text-gray-800">
             {fullName || "User Name"}
           </h2>
-          <FaEdit
-            size={18}
-            className="ml-2 text-gray-600 cursor-pointer hover:text-gray-800 transition"
-            title="Edit Name"
-          />
+          <Link to="/dashboard/updateProfile" title="Edit Profile">
+            <FaEdit
+              size={18}
+              className="ml-2 text-gray-600 cursor-pointer hover:text-gray-800 transition"
+              title="Edit Name"
+            />
+          </Link>
         </div>
 
         <div className="relative mt-2 flex justify-center items-center">
           <p className="text-gray-500">{email || "user@example.com"}</p>
-          <FaEdit
-            size={16}
-            className="ml-2 text-gray-500 cursor-pointer hover:text-gray-700 transition"
-            title="Edit Email"
-          />
+          <Link to="/dashboard/updateProfile" title="Edit Profile">
+            <FaEdit
+              size={18}
+              className="ml-2 text-gray-600 cursor-pointer hover:text-gray-800 transition"
+              title="Edit Name"
+            />
+          </Link>
         </div>
 
         <hr className="my-6 border-gray-300" />

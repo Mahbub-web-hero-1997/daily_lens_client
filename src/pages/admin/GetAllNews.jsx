@@ -101,15 +101,15 @@ const GetAllNews = () => {
       </div>
 
       {/* News Table */}
-      <div className="overflow-x-auto w-full max-w-6xl mx-auto">
+      <div className="overflow-x-auto w-full mx-auto">
         {loading ? (
           <p className="text-center text-lg font-semibold text-blue-500">
             Loading news...
           </p>
         ) : categoryNews.length > 0 ? (
-          <table className="min-w-full bg-white rounded-xl overflow-hidden shadow-lg">
+          <table className="w-full bg-white rounded-xl overflow-hidden shadow-lg">
             <thead>
-              <tr className="bg-blue-100 text-gray-700 text-left text-sm uppercase font-semibold tracking-wider">
+              <tr className="bg-blue-100 text-gray-700 text-left text-sm uppercase font-semibold tracking-wider text-start">
                 <th className="px-6 py-3">#</th>
                 <th className="px-6 py-3">Title</th>
                 <th className="px-6 py-3">Category</th>
@@ -150,7 +150,7 @@ const GetAllNews = () => {
             </tbody>
           </table>
         ) : (
-          <p className="text-center text-gray-600 text-lg mt-10">
+          <p className="text-center text-gray-600 text-lg mt-10 animate- animate-[infinite] ">
             No news found in this category.
           </p>
         )}

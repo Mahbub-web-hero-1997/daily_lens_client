@@ -46,10 +46,14 @@ const Dashboard = () => {
       {/* Sidebar toggle button for mobile */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform"
+        className={`${
+          isShow
+            ? "md:hidden fixed z-50 bg-white p-2 rounded-b-full  shadow-md hover:scale-105 transition-transform animate-pulse hover:animate-none"
+            : "md:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-full shadow-md hover:scale-105 transition-transform"
+        }`}
       >
         {isShow ? (
-          <MdCancel className="text-2xl text-gray-700" />
+          <MdCancel className="text-xl text-gray-700 " />
         ) : (
           <FaBars className="text-xl text-gray-700" />
         )}
@@ -101,7 +105,7 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-y-auto px-4 py-6 md:px-8 bg-white rounded-tl-3xl shadow-inner ">
+      <div className="flex-1 overflow-y-auto px-4 py-6 md:px-8 bg-white shadow-inner ">
         <Outlet />
       </div>
     </div>
