@@ -3,7 +3,7 @@ import UseAxiosPublic from "../../customHook/UseAxios";
 import { useForm } from "react-hook-form";
 import styles from "./styles/UpdateNews.module.css";
 import Swal from "sweetalert2";
-  const UpdateNews = () => {
+const UpdateNews = () => {
   const news = useLoaderData();
   const { title, description, category, _id } = news.data;
   const { register, handleSubmit, reset } = useForm();

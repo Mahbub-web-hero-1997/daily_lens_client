@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Dashboard = () => {
   const axiosPublic = UseAxiosPublic();
-  const [isShow, setIsShow] = useState(false);
+  const [isShow, setIsShow] = useState(true);
   const { setCurrentUser, loading, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   if (loading) {
@@ -122,7 +122,7 @@ const Dashboard = () => {
               <li className="text-center text-md font-semibold flex items-center gap-2 ">
                 <NavLink
                   className={({ isActive }) => (isActive ? " " : "text-white")}
-                  to="#"
+                  to="/dashboard/user"
                 >
                   User Home
                 </NavLink>
@@ -162,7 +162,7 @@ const Dashboard = () => {
             </ul>
           )}
         </div>
-        <div className="w-full h-screen ">
+        <div className=" w-full md:w-1/2 h-screen flex justify-end  ">
           <Outlet />
         </div>
       </div>
