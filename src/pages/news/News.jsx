@@ -13,7 +13,7 @@ const News = () => {
       {/* Main News Content */}
       <div className="mb-10 bg-white rounded-xl shadow-md p-4 md:p-6 max-w-4xl mx-auto">
         <img
-          className="w-full rounded-md object-cover max-h-[400px]"
+          className="w-full h-[450px] rounded-md object-center mb-4"
           src={news?.data?.image}
           alt="Main News"
         />

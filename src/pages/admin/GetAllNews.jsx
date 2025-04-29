@@ -101,7 +101,7 @@ const GetAllNews = () => {
       </div>
 
       {/* News Table */}
-      <div className="overflow-x-auto max-w-6xl mx-auto">
+      <div className="overflow-x-auto w-full max-w-6xl mx-auto">
         {loading ? (
           <p className="text-center text-lg font-semibold text-blue-500">
             Loading news...

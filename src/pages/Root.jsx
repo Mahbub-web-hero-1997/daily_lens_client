@@ -39,7 +39,7 @@ const Root = () => {
                                                         Right Side Container
                                                         **************************************************************** */}
           <div className="w-full md:w-[20%] h-screen p-3 order-2 md:order-3 sticky top-[calc(4rem+1px)] z-20 overflow-y-scroll scrollbar-hidden bg-gray-50 border-l border-gray-200">
-            <h1 className="text-center text-xl font-bold text-gray-800">
+            <h1 className="text-center text-xl font-bold text-gray-800 animate-bounce">
               Breaking News
             </h1>
             <hr className="w-1/2 mx-auto mt-2 border-gray-300" />

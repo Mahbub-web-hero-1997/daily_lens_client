@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../contextAPI/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import GetAllNews from "./getAllNews";
+import { Link } from "react-router-dom";
 
 const AdminHome = () => {
   const { currentUser } = useContext(AuthContext);
@@ -17,7 +18,9 @@ const AdminHome = () => {
           />
 
           <div className="absolute top-1 right-1 p-2 bg-gray-800 text-white rounded-full cursor-pointer hover:bg-gray-600 transition-all">
-            <FaEdit size={18} />
+            <Link to="/dashboard/updateProfile" title="Edit Profile">
+              <FaEdit size={18} />
+            </Link>
           </div>
         </div>
 

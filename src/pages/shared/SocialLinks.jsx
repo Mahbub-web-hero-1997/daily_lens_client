@@ -16,13 +16,13 @@ const SocialLinks = () => {
 
       <div className="flex justify-center items-center gap-5">
         <Link to="#" title="Facebook">
-          <FaFacebookSquare className="text-4xl text-gray-600 hover:text-blue-600 hover:scale-110 transition duration-300 cursor-pointer" />
+          <FaFacebookSquare className="text-4xl text-gray-600 hover:text-blue-600 hover:scale-110 transition duration-300 cursor-pointer " />
         </Link>
         <Link to="#" title="Twitter">
-          <FaSquareXTwitter className="text-4xl text-gray-600 hover:text-black hover:scale-110 transition duration-300 cursor-pointer" />
+          <FaSquareXTwitter className="text-4xl text-gray-600 hover:text-black hover:scale-110 transition duration-300 cursor-pointer " />
         </Link>
         <Link to="#" title="YouTube">
-          <FaSquareYoutube className="text-4xl text-gray-600 hover:text-red-600 hover:scale-110 transition duration-300 cursor-pointer" />
+          <FaSquareYoutube className="text-4xl text-gray-600 hover:text-red-600 hover:scale-110 transition duration-300 cursor-pointer " />
         </Link>
         <Link to="#" title="LinkedIn">
           <FaLinkedin className="text-4xl text-gray-600 hover:text-blue-700 hover:scale-110 transition duration-300 cursor-pointer" />
