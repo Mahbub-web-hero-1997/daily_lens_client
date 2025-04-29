@@ -67,9 +67,9 @@ const GetAllNews = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 py-8 px-4">
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 py-2 px-2 md:py-8 md:px-4 rounded-lg">
       {/* Category Filter */}
-      <div className="w-full mx-auto bg-white shadow-md rounded-xl p-6 mb-10">
+      <div className="w-full mx-auto bg-white shadow-md rounded-xl p-4 md:p-6 mb-4 md:mb-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <h1 className="text-2xl font-semibold text-gray-800">
             📰 Total News:{" "}

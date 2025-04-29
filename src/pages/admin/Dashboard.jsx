@@ -82,7 +82,6 @@ const Dashboard = () => {
               </NavLink>
 
               <NavItem to="/dashboard/create-news" label="Create News" />
-              <NavItem to="/dashboard/user" label="Profile" />
             </>
           ) : (
             <>

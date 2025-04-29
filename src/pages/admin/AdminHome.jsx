@@ -8,7 +8,7 @@ const AdminHome = () => {
   const { profilePicture, fullName, email } = currentUser || {};
   return (
     <div className="min-h-screen flex flex-col justify-left">
-      <div className="bg-white rounded-2xl p-8 w-full h-screen">
+      <div className="bg-white rounded-2xl md:p-8 w-full h-screen">
         <div className="relative w-32 h-32 mx-auto">
           <img
             src={profilePicture}
@@ -21,7 +21,7 @@ const AdminHome = () => {
           </div>
         </div>
 
-        <div className="relative mt-6 flex justify-center items-center">
+        <div className="relative mt-4 md:mt-6 flex justify-center items-center">
           <h2 className="text-3xl font-bold text-gray-800">
             {fullName || "User Name"}
           </h2>

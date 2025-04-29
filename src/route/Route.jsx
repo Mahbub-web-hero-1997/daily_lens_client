@@ -23,7 +23,6 @@ import UpdateNews from "../pages/admin/UpdateNews";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import PrivateRoute from "../pages/PrivateRoute";
-import User from "../pages/admin/User";
 
 // import News from "../pages/home/News";
 
@@ -83,17 +82,13 @@ const router = createBrowserRouter([
         element: <GetAllNews />,
       },
       {
-      path: "/dashboard/update/:id",
+        path: "/dashboard/update/:id",
         element: <UpdateNews />,
         loader: ({ params }) =>
           fetch(
             `https://daily-lens-server.vercel.app/api/v1/news/single-news/${params.id}`
           ),
       },
-      // {
-      //   path: "/dashboard/user",
-      //   element: <User />,
-      // },
     ],
   },
 ]);
