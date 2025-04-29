@@ -3,6 +3,7 @@ import { AuthContext } from "../../contextAPI/AuthProvider";
 import { Link } from "react-router-dom";
 import UseAxiosPublic from "../../customHook/UseAxios";
 import Swal from "sweetalert2";
+import { FaEdit, FaTrash } from "react-icons/fa"; // Importing Edit and Trash icons
 
 const GetAllNews = () => {
   const { newses, loading } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const GetAllNews = () => {
   const handleCategoryNews = (event) => {
     setSelectedCategory(event.target.value);
   };
+
   // New Delete function
   const handleDelete = async (id) => {
     Swal.fire({
@@ -66,75 +68,91 @@ const GetAllNews = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-auto overflow-x-hidden  bg-gray-200  ">
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 py-8 px-4">
       {/* Category Filter */}
-      <div className="w-full md:w-1/3 mx-auto p-4 border-b border-gray-500 text-center flex justify-between items-center gap-2 mt-8 md:mt-0">
-        <h1 className="text-2xl text-gray-700">
-          Total News: {categoryNews.length}
-        </h1>
-        <div className="flex flex-col md:flex-row items-center gap-2">
-          <h1>Search News By Category</h1>
-          <select
-            className="border border-gray-300 p-1 text-gray-700"
-            value={selectedCategory} // Keep track of selected category
-            onChange={handleCategoryNews}
-          >
-            <option value="all">All</option>
-            <option value="Breaking-News">Breaking-News</option>
-            <option value="Politics">Politics</option>
-            <option value="National-News">National-News</option>
-            <option value="World-News">World-News</option>
-            <option value="Business & Economy">Business & Economy</option>
-            <option value="Sports">Sports</option>
-            <option value="Health & Wellness">Health & Wellness</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Job And Career">Job And Career</option>
-            <option value="Education">Education</option>
-          </select>
+      <div className="w-full mx-auto bg-white shadow-md rounded-xl p-6 mb-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <h1 className="text-2xl font-semibold text-gray-800">
+            📰 Total News:{" "}
+            <span className="text-blue-600">{categoryNews.length}</span>
+          </h1>
+          <div className="flex items-center gap-3">
+            <label className="text-gray-700 font-medium">
+              Filter by Category:
+            </label>
+            <select
+              className="border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              value={selectedCategory}
+              onChange={handleCategoryNews}
+            >
+              <option value="all">All</option>
+              <option value="Breaking-News">Breaking-News</option>
+              <option value="Politics">Politics</option>
+              <option value="National-News">National-News</option>
+              <option value="World-News">World-News</option>
+              <option value="Business & Economy">Business & Economy</option>
+              <option value="Sports">Sports</option>
+              <option value="Health & Wellness">Health & Wellness</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Job And Career">Job And Career</option>
+              <option value="Education">Education</option>
+            </select>
+          </div>
         </div>
       </div>
 
       {/* News Table */}
-      <div className="overflow-x-auto w-full md:w-[80%] mx-auto mt-8  ">
+      <div className="overflow-x-auto max-w-6xl mx-auto">
         {loading ? (
-          <p>Loading news...</p>
+          <p className="text-center text-lg font-semibold text-blue-500">
+            Loading news...
+          </p>
         ) : categoryNews.length > 0 ? (
-          <table className="table w-full">
+          <table className="min-w-full bg-white rounded-xl overflow-hidden shadow-lg">
             <thead>
-              <tr className="bg-gray-200">
-                <th>SL</th>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Actions</th>
+              <tr className="bg-blue-100 text-gray-700 text-left text-sm uppercase font-semibold tracking-wider">
+                <th className="px-6 py-3">#</th>
+                <th className="px-6 py-3">Title</th>
+                <th className="px-6 py-3">Category</th>
+                <th className="px-6 py-3">Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-gray-200">
               {categoryNews.map((news, index) => (
-                <tr key={news._id} className="hover:bg-gray-100">
-                  <td>{index + 1}</td>
-                  <td>{news.title}</td>
-                  <td>{news.category}</td>
-                  <td className="flex gap-5">
+                <tr
+                  key={news._id}
+                  className="hover:bg-gray-50 transition duration-300"
+                >
+                  <td className="px-6 py-4">{index + 1}</td>
+                  <td className="px-6 py-4 font-medium text-gray-800">
+                    {news.title}
+                  </td>
+                  <td className="px-6 py-4 text-blue-600 font-semibold">
+                    {news.category}
+                  </td>
+                  <td className="px-6 py-4 flex flex-col md:flex-row justify-center items-center gap-4">
                     <Link
                       to={`/dashboard/update/${news._id}`}
-                      className="text-blue-500 "
+                      title="Edit"
+                      className="text-blue-600 hover:text-blue-800 transition"
                     >
-                      Edit
+                      <FaEdit size={18} />
                     </Link>
-                    <Link
+                    <button
                       onClick={() => handleDelete(news._id)}
-                      className="text-red-600 "
+                      title="Delete"
+                      className="text-red-500 hover:text-red-700 transition"
                     >
-                      Delete
-                    </Link>
+                      <FaTrash size={18} />
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
-          <p className="text-center text-gray-600">
-            No news found in this category.
+          <p className="text-center text-gray-600 text-lg mt-10">
+            ❌ No news found in this category.
           </p>
         )}
       </div>

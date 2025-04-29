@@ -54,18 +54,26 @@ const Dashboard = () => {
   return (
     <>
       <div className="flex w-full p-1 h-screen">
-        <button onClick={handleSidebar} className="z-50 fixed top-2 left-2">
-          {isShow ? (
-            <FaBars className="text-xl text-gray-700  cursor-pointer " />
-          ) : (
-            <MdCancel className="text-2xl text-white fixed  z-50 cursor-pointer" />
-          )}
-        </button>
+        {isShow ? (
+          <button
+            onClick={handleSidebar}
+            className="z-50 fixed top-2 left-2 bg-white p-2 rounded-full shadow-md hover:scale-110 transition duration-300"
+          >
+            <FaBars className="text-xl text-gray-700 cursor-pointer" />
+          </button>
+        ) : null}
+
         <div
           className={`fixed top-0 left-0 h-screen bg-gray-700 px-4 w-[70%] md:w-[20%] z-20 transition-transform duration-300 ${
-            isShow ? "-translate-x-full" : ""
+            isShow ? "-translate-x-full" : "translate-x-0"
           }`}
         >
+          <button
+            onClick={handleSidebar}
+            className="absolute top-0 right-0 bg-white text-gray-800 p-1 rounded-full shadow-md hover:bg-gray-700 hover:text-white transition duration-300 ease-in-out"
+          >
+            <MdCancel className="text-2xl" />
+          </button>
           {isAdmin ? (
             <ul className="mt-3 text-white uppercase">
               <li className="text-center text-md md:text-xl font-semibold ">
@@ -162,7 +170,7 @@ const Dashboard = () => {
             </ul>
           )}
         </div>
-        <div className=" w-full md:w-1/2 h-screen flex justify-end  ">
+        <div className=" w-full md:w-3/4 h-screen md:ml-[20%] ">
           <Outlet />
         </div>
       </div>

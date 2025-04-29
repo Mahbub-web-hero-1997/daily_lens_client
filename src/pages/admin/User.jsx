@@ -1,20 +1,25 @@
 import { useContext } from "react";
 import { AuthContext } from "../../contextAPI/AuthProvider";
+import { FaEdit } from "react-icons/fa"; // Import edit icon from react-icons
 
 const User = () => {
   const { currentUser } = useContext(AuthContext);
   const { profilePicture, fullName, email } = currentUser || {};
 
   return (
-    <div className="4">
-      <div className="mt-10 bg-white rounded-2xl shadow-2xl p-8 w-full">
-        {/* Profile Image */}
-        <div className="flex justify-center">
+    <div className="min-h-screen flex flex-col justify-left">
+      <div className="bg-white rounded-2xl p-8 w-full h-screen ">
+        {/* Profile Image with Edit Icon */}
+        <div className="flex justify-center ">
           <img
             src={profilePicture}
             alt="Profile"
-            className="w-32 h-32 rounded-full object-cover shadow-xl transform transition-all duration-500 hover:-translate-y-2 hover:scale-105"
+            className="w-32 h-32 relative rounded-full object-cover shadow-xl transform transition-all duration-500 hover:-translate-y-2 hover:scale-105"
           />
+          {/* Edit Icon */}
+          <div className="absolute bottom-0 right-0 mb-2 mr-2 p-2 bg-gray-800 text-white rounded-full cursor-pointer hover:bg-gray-600 transition-all">
+            <FaEdit size={20} />
+          </div>
         </div>
 
         {/* User Info */}
