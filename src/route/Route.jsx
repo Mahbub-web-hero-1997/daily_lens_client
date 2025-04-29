@@ -83,17 +83,17 @@ const router = createBrowserRouter([
         element: <GetAllNews />,
       },
       {
-        path: "/dashboard/update/:id",
+      path: "/dashboard/update/:id",
         element: <UpdateNews />,
         loader: ({ params }) =>
           fetch(
             `https://daily-lens-server.vercel.app/api/v1/news/single-news/${params.id}`
           ),
       },
-      {
-        path: "/dashboard/user",
-        element: <User />,
-      },
+      // {
+      //   path: "/dashboard/user",
+      //   element: <User />,
+      // },
     ],
   },
 ]);

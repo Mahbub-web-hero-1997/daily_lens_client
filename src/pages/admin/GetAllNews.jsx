@@ -3,18 +3,17 @@ import { AuthContext } from "../../contextAPI/AuthProvider";
 import { Link } from "react-router-dom";
 import UseAxiosPublic from "../../customHook/UseAxios";
 import Swal from "sweetalert2";
-import { FaEdit, FaTrash } from "react-icons/fa"; // Importing Edit and Trash icons
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const GetAllNews = () => {
   const { newses, loading } = useContext(AuthContext);
-  const [categoryNews, setCategoryNews] = useState(newses); // Initial state with all news
+  const [categoryNews, setCategoryNews] = useState(newses);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const axiosPublic = UseAxiosPublic();
 
-  // Effect to handle filtering based on selected category
   useEffect(() => {
     if (selectedCategory === "all") {
-      setCategoryNews(newses); // Show all news
+      setCategoryNews(newses);
     } else {
       const filteredNews = newses.filter(
         (news) => news.category === selectedCategory
