@@ -5,7 +5,7 @@ import GetAllNews from "./getAllNews";
 import { Link } from "react-router-dom";
 
 const AdminHome = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, isAdmin } = useContext(AuthContext);
   const { profilePicture, fullName, email } = currentUser || {};
   return (
     <div className="min-h-screen flex flex-col justify-left">
@@ -49,10 +49,32 @@ const AdminHome = () => {
         </div>
 
         <hr className="my-6 border-gray-300" />
-
-        <div className="text-center">
-          <GetAllNews />
-        </div>
+        {isAdmin ? (
+          <div className="text-center">
+            <GetAllNews />
+          </div>
+        ) : (
+          <div className="flex items-center justify-center px-4">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 animate-bounce">
+                Coming Soon!
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 max-w-md mx-auto">
+                The{" "}
+                <span className="font-semibold text-blue-600">
+                  User Profile
+                </span>{" "}
+                section is under construction. We&apos;re working hard to bring
+                you this feature soon!
+              </p>
+              <div className="mt-6">
+                <span className="inline-block px-4 py-2 bg-yellow-300 text-yellow-900 rounded-full font-medium shadow-sm animate-pulse">
+                  Stay tuned...
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

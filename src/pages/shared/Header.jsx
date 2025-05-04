@@ -141,7 +141,7 @@ const Header = () => {
       {isAdmin || currentUser ? (
         <li className="text-sm ">
           <NavLink
-            to={isAdmin ? "/dashboard" : "/dashboard/user"}
+            to="/dashboard"
             className={({ isActive }) =>
               isActive ? "bg-gray-700 text-white font-bold" : "font-semibold"
             }
