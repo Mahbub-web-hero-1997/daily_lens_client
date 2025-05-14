@@ -2,14 +2,14 @@ const NewsLetter = () => {
   return (
     <div>
       <div>
-        <h1 className="text-xl text-center font-semibold my-6">
+        <h1 className="text-xl text-center font-semibold my-6 text-gray-700">
           Subscribe to our Newsletter
         </h1>
         <form action="">
           <input
             type="email"
             placeholder="Enter your email"
-            className="w-full md:w-[90%] h-10 px-2 border border-gray-400 rounded-md outline-0"
+            className="w-full md:w-[90%] h-10 px-2 border border-gray-400 rounded-md outline-0 text-gray-700"
           />
           <button className="w-full md:w-[90%] h-10 bg-gray-600 text-white rounded-md mt-2 uppercase font-semibold cursor-pointer">
             Subscribe
