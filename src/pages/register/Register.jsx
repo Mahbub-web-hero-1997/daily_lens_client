@@ -65,95 +65,99 @@ const Register = () => {
 
   return (
     <>
-      <div
-        className={`w-[96%] md:w-3/6 mx-auto h-screen md:h-auto flex flex-col items-center justify-center shadow-xl bg-white`}
-      >
-        <div className="w-full flex justify-between items-center px-6 mt-4">
-          <FaHome
-            className="text-3xl text-blue-600 cursor-pointer"
-            onClick={() => navigate("/")}
-          />
-        </div>
-        <form
-          // className="w-full md:w-3/5 h-auto mx-auto flex flex-col p-2"
-          className="w-full h-auto mx-auto flex flex-col px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 "
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5"
-            {...register("fullName", { required: true })}
-          />
-
-          <input
-            type="email"
-            placeholder="Email"
-            className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5"
-            {...register("email", { required: true })}
-          />
-
-          <div className="flex gap-4 mb-4 border-0 border-b-1 border-b-gray-400 rounded-md p-4">
-            <div className="flex gap-4 mb-4 items-center">
-              <label className="text-gray-700 font-medium">Gender:</label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  value="Male"
-                  {...register("gender", { required: true })}
-                />
-                Male
-              </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  value="Female"
-                  {...register("gender", { required: true })}
-                />
-                Female
-              </label>
-            </div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        <div className="w-[96%] md:w-3/7 mx-auto  flex flex-col items-center shadow-xl bg-white rounded-2xl">
+          <div className="w-full flex justify-between items-center px-6 mt-4">
+            <FaHome
+              className="text-3xl text-blue-600 cursor-pointer"
+              onClick={() => navigate("/")}
+            />
+          </div>
+          <form
+            // className="w-full md:w-3/5 h-auto mx-auto flex flex-col p-2"
+            className="w-full h-auto mx-auto flex flex-col px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 "
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5 text-gray-700"
+              {...register("fullName", { required: true })}
+            />
 
             <input
-              type="file"
-              className="file:mr-4 file:py-2 file:px-4 
+              type="email"
+              placeholder="Email"
+              className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5 text-gray-700"
+              {...register("email", { required: true })}
+            />
+
+            <div className="flex gap-4 mb-4 border-0 border-b-1 border-b-gray-400 rounded-md p-4">
+              <div className="flex flex-col md:flex-row gap-4 mb-6 items-start md:items-center">
+                <label className="text-gray-700 font-medium">Gender:</label>
+                <div className="flex gap-6">
+                  <label className="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors">
+                    <input
+                      type="radio"
+                      value="Male"
+                      {...register("gender", { required: true })}
+                      className="accent-blue-600"
+                    />
+                    <span className="text-gray-700">Male</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer hover:text-pink-500 transition-colors">
+                    <input
+                      type="radio"
+                      value="Female"
+                      {...register("gender", { required: true })}
+                      className="accent-pink-500"
+                    />
+                    <span className="text-gray-700">Female</span>
+                  </label>
+                </div>
+              </div>
+
+              <input
+                type="file"
+                className="file:mr-4 file:py-2 file:px-4 
              file:rounded-sm file:border-0 
              file:text-sm file:font-semibold 
              file:bg-gray-800 file:text-white 
              hover:file:bg-blue-700            
              text-gray-700 rounded-md 
                cursor-pointer"
-              {...register("profilePicture", { required: true })}
+                {...register("profilePicture", { required: true })}
+              />
+            </div>
+
+            <input
+              type="password"
+              placeholder="Password"
+              className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5 text-gray-700"
+              {...register("password", { required: true })}
             />
-          </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5"
-            {...register("password", { required: true })}
-          />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5 text-gray-700"
+              {...register("confirmPassword", { required: true })}
+            />
 
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className="p-2 rounded-md border-0 border-b-1 border-b-gray-400 outline-0 mb-3 py-5"
-            {...register("confirmPassword", { required: true })}
-          />
+            <input
+              className="my-6 text-xl py-3 uppercase cursor-pointer bg-gray-800 bg-gray-700 text-white p-2 rounded-md active:scale-[0.9] transition-transform duration-150 ease-out"
+              type="submit"
+              value="Register"
+            />
 
-          <input
-            className="my-6 text-xl py-3 uppercase cursor-pointer bg-gray-800 bg-gray-700 text-white p-2 rounded-md active:scale-[0.9] transition-transform duration-150 ease-out"
-            type="submit"
-            value="Register"
-          />
-
-          <p className="text-sm text-center text-gray-500 mt-2">
-            Already have an account?{" "}
-            <Link to="/login" className="text-blue-600 hover:underline">
-              Login
-            </Link>
-          </p>
-        </form>
+            <p className="text-sm text-center text-gray-500 mt-2">
+              Already have an account?{" "}
+              <Link to="/login" className="text-blue-600 hover:underline">
+                Login
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
     </>
   );

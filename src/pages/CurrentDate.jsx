@@ -29,7 +29,7 @@ const CurrentDateTime = () => {
   }, []);
 
   return (
-    <div className="text-center font-bold text-lg space-y-1 px-4">
+    <div className="text-center font-bold text-lg space-y-1 px-4 text-gray-700">
       <p>{currentTime.day}</p>
       <p>{currentTime.monthDay}</p>
       <p>{currentTime.year}</p>

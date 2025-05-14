@@ -17,7 +17,7 @@ const Header = () => {
   console.log(currentUser);
   const navItem = (
     <>
-      <li className="text-sm ">
+      <li className="text-sm text-black ">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -28,7 +28,7 @@ const Header = () => {
         </NavLink>
       </li>
 
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/breaking"
           className={({ isActive }) =>
@@ -38,7 +38,7 @@ const Header = () => {
           Breaking News
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black ">
         <NavLink
           to="/politics"
           className={({ isActive }) =>
@@ -48,7 +48,7 @@ const Header = () => {
           Politics
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black ">
         <NavLink
           to="/national"
           className={({ isActive }) =>
@@ -58,7 +58,7 @@ const Header = () => {
           National News
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/international"
           className={({ isActive }) =>
@@ -68,7 +68,7 @@ const Header = () => {
           International
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/business"
           className={({ isActive }) =>
@@ -78,7 +78,7 @@ const Header = () => {
           Business & Economy
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/technology"
           className={({ isActive }) =>
@@ -88,7 +88,7 @@ const Header = () => {
           Technology
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/sports"
           className={({ isActive }) =>
@@ -98,7 +98,7 @@ const Header = () => {
           Sports
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/entertainment"
           className={({ isActive }) =>
@@ -108,7 +108,7 @@ const Header = () => {
           Entertainment
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/career"
           className={({ isActive }) =>
@@ -118,7 +118,7 @@ const Header = () => {
           Jobs
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/health"
           className={({ isActive }) =>
@@ -128,7 +128,7 @@ const Header = () => {
           Health
         </NavLink>
       </li>
-      <li className="text-sm ">
+      <li className="text-sm text-black">
         <NavLink
           to="/education"
           className={({ isActive }) =>
@@ -139,7 +139,7 @@ const Header = () => {
         </NavLink>
       </li>
       {isAdmin || currentUser ? (
-        <li className="text-sm ">
+        <li className="text-sm text-black">
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
@@ -150,7 +150,7 @@ const Header = () => {
           </NavLink>
         </li>
       ) : (
-        <li className="text-sm ">
+        <li className="text-sm text-black">
           <NavLink
             to="/login"
             className={({ isActive }) =>
@@ -169,7 +169,7 @@ const Header = () => {
       <div className=" w-[98%] mx-auto hidden md:block md:z-50 bg-[rgb(237,239,242)]  ">
         <div className="flex items-center">
           <div className="w-full">
-            <h1 className="  text-8xl font-semibold tracking-widest mb-4 ">
+            <h1 className="  text-8xl text-black font-semibold tracking-widest mb-4 ">
               𝖳𝖧𝖤-𝖣𝖠𝖨𝖫𝖸-𝖫𝖤𝖭𝖲
             </h1>
             <h4 className=" ml-3 text-2xl text-gray-700  font-semibold tracking-widest">
