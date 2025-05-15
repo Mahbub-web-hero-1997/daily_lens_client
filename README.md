@@ -1,8 +1,27 @@
-# React + Vite
+# [📰 THE DAILY LENS](https://cosmic-frangipane-73525a.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**The Daily Lens** is a full-stack news application built with the MERN (MongoDB, Express.js, React.js, Node.js) stack. It features a modern, responsive UI and a robust backend. This app includes separate dashboards for users and admins. Admins can create, update, and delete news posts with images hosted on Cloudinary.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+
+- 🧑‍💻 **Admin Dashboard**
+  - Create, update, and delete news articles
+  - Manage image uploads via Cloudinary
+- 👤 **User Dashboard**
+  - View published news
+  - Profile management
+- 🖼️ **Image Hosting**
+  - Seamless Cloudinary integration for storing and managing images
+- 🔐 **Authentication & Security**
+  - JWT-based authentication with HTTP-only cookies
+  - Passwords are securely hashed using `bcrypt`
+- 📚 **Tech Stack**
+  - **Frontend**: React.js, Tailwind CSS (or your chosen styling framework)
+  - **Backend**: Node.js, Express.js, Mongoose (MongoDB)
+  - **Image Hosting**: Cloudinary
+
+---
+
+## 🏗️ Project Structure
