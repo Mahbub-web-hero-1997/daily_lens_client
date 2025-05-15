@@ -10,7 +10,6 @@
   - Create, update, and delete news articles
   - Manage image uploads via Cloudinary
 - 👤 **User Dashboard**
-  - View published news
   - Profile management
 - 🖼️ **Image Hosting**
   - Seamless Cloudinary integration for storing and managing images
